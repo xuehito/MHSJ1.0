@@ -1,6 +1,11 @@
-﻿using System.Web.UI;
+﻿using System.Collections.Generic;
+using System.Text;
+using System.Web.UI;
 using MHSJ.Core.Common;
 using MHSJ.Core.Service;
+using MHSJ.Core.Service.Account;
+using MHSJ.Core.Service.Link;
+using MHSJ.Entity;
 
 namespace MHSJ.Web
 {
@@ -13,7 +18,7 @@ namespace MHSJ.Web
         public static string Description; //Meta Description
         public static string Bottom; //页脚
 
-        //public static string Url = "http://www.mhsj.top/";
+        public static string SiteUrl = "http://www.mhsj.top/";
         //public static string IndexUrl = Url+"index.aspx";
        
         protected Pager()
@@ -135,6 +140,26 @@ namespace MHSJ.Web
             Keywords = foot.MetaKeywords;
             Description = foot.MetaDescription;
             Bottom = foot.FooterHtml;
+        }
+
+        /// <summary>
+        /// 获取所有友链
+        /// </summary>
+        public string QueryLink()
+        {
+            var linklist = Biz_LinkManager.biz_link.QueryList();
+
+            var str = new StringBuilder();
+            str.Append("<ul>");
+            foreach (var link in linklist)
+            {
+                str.Append("<li>");
+                str.AppendFormat("<a target='_blank' href='{0}' title='{1}'>{1}</a>", link.Url, link.Name);
+                str.Append("</li>");
+            }
+            str.Append("</ul>");
+
+            return str.ToString();
         }
     }
 }

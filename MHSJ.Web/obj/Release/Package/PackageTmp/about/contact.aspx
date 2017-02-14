@@ -7,13 +7,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>梅花书检</title>
+<title>梅花书检-联系我们</title>
 <meta name="keywords" content="<%=Keywords %>"/>
 <meta name="description" content="<%=Description %>" />
 
 <link rel="stylesheet" type="text/css" href="/common/css/base.css" />
 <link rel="stylesheet" type="text/css" href="/common/css/main.css" />
-<link href="/common/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="/common/scripts/jquery-1.7.2.min.js"></script>
 <script language="javascript" type="text/javascript" src="/common/scripts/main.js"></script>
 
@@ -29,26 +29,48 @@
     </style>
 </head>
 <body>
-    <!--头部-->
-    <div class="header">
-    <ul class="link_ul">
-    	<li><a href="/index.aspx" title="梅花书检首页"><img class="logo" src="/common/images/logo.png" alt="梅花书检" /></a></li>
-    	<%--<li><a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>|</li>
-        <li><a target="_self" href="javascript:void(0)" onclick="shoucang(document.title,window.location)">收藏本站</a>|</li>
-        <li><a href="#">会员登录</a>|</li>
-        <li><a href="#">会员注册</a></li>--%>
+   <!--头部-->
+    <div class="header" >
+    <ul class="link_nav link_ul">
+        <li><a href="/index.aspx">首页</a></li>
+        <%--<li><a href="#">梅花消息</a></li>
+        <li><a href="#">梅花鉴赏</a></li>--%>
     </ul>
+        <%if(PageUtils.IsAccountLogin) %>
+    <%{%>
+        <ul class="link_user link_ul">
+    	    <%--<li><a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>|</li>
+            <li><a target="_self" href="javascript:void(0)" onclick="shoucang(document.title,window.location)">收藏本站</a>|</li>
+            <li><a href="/Account/Login">登录</a></li>
+            <li><a href="#">注册</a></li>--%>
+
+             <li class="bl"><a href="/mycenter/collections"  title="我的收藏">我的收藏</a></li>
+            <li class="bl"><a href="/mycenter/integral" title="查看积分">积分</a>：<%= Integral%></li>
+             <li><a href="/mycenter" title="管理"><%=PageUtils.CurrentAccount.Name %></a></li>
+             <li><a href="/Account/Logout">退出</a></li>
+        </ul>
+       <% }%>
+         <%else
+          {%>
+        
+             <ul class="link_user link_ul">
+                 <li><a href="/Account/Login">登录</a></li>
+                 <li><a href="/Account/Register">注册</a></li>
+             </ul>
+        <% }%>
 </div>
 <div class="main">
     <div class="con aboutus">
-        <h1>
+        <h2 style="margin-top: 0px">
             <em></em>
             联系我们
-        </h1> 
+        </h2> 
         <div>
-            <h2>联系我们：</h2>
             <p>联系方式：欢迎致电我们，我们将竭诚为您服务！</p>
             <p>工作时间：周一至周六：早晨：8：00—12：00 下午：14：00—18：00</p>
+            <p><span style="font-weight: bold">业务合作：</span>
+本站诚邀全国给地书画家、篆刻家、艺术机构、文房用品厂商前来合作。
+咨询电话：13011422296</p>
             <p>QQ：2050991408
                 <a href="tencent://message/?uin=2050991408&Site=梅花书检&Menu=yes">
                     <img src="../common/images/qq.gif" alt="在线qq交流"  title="点击这里给我发消息">

@@ -1,0 +1,61 @@
+﻿@model MHSJ.Web.Models.Account.RegisterModel
+@{
+    ViewBag.Title = "会员注册";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="con">
+    <h2>
+        <em></em>
+        会员注册
+    </h2> 
+</div>
+<div style="width: 30%;float:right">
+    <br /><br />
+    <p>> 已经拥有帐号？@Html.ActionLink("直接登录","Login","Account")</p>
+</div>
+<div style="line-height: 25px;margin-left: 50px">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { }))
+{
+        @Html.AntiForgeryToken()
+         <br />
+        <p>
+            @Html.LabelFor(um => um.Name, new { @class="control-label",@style="float:left;width: 80px"})
+            @Html.TextBoxFor(um => um.Name, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "输入用户名"})
+            @Html.ValidationMessageFor(um => um.Name, String.Empty, new{@style="float:left;" })
+        </p>
+        <br /><br />
+        <p>
+            @Html.LabelFor(pw => pw.Password, new {@class="control-label",@style="float:left;width: 80px" })
+            @Html.PasswordFor(pw => pw.Password, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "输入密码"})
+            @Html.ValidationMessageFor(pw => pw.Password, String.Empty, new{@style="float:left;" })
+        </p>
+        
+        <br /> <br />
+        <p>
+            @Html.LabelFor(pw => pw.ConfirmPassword, new {@class="control-label",@style="float:left;width: 80px" })
+            @Html.PasswordFor(pw => pw.ConfirmPassword, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "确认密码"})
+            @Html.ValidationMessageFor(pw => pw.ConfirmPassword, String.Empty, new{@style="float:left;" })
+        </p>
+        <br /><br />
+        <p>
+            @Html.LabelFor(code => code.VerifyCode, new {@class="control-label",@style="float:left;width: 80px" })
+            @Html.TextBoxFor(code => code.VerifyCode, new { @class = "form-control input-sm", @style = "float:left;width: 15%;margin-right: 10px", @placeholder = "输入验证码"})
+            <img align="absMiddle"  onclick="this.src='/common/tools/verifyimage.aspx?time=' + Math.random()" src="/common/tools/verifyimage.aspx" style="cursor: pointer;" alt="点击刷新"/>
+            @Html.ValidationMessageFor(code => code.VerifyCode, String.Empty, new{@style="float:left;" })
+        </p>
+        
+    <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl">
+         <br />
+    <p style="clear:left;margin-top: 15px">
+        <input id="btn-login" type="submit" name="btnLogin" value="注册" class="btn btn-default btn-sm" style="margin-left:80px;"/>
+        @*<input id="btn-reset" type="reset" name="btnReset" value="重 置" class="btn btn-default btn-sm" style="margin-left:25px;"/>*@
+        <label id="lbl-message" style="margin-left: 15px;color: #b94a48;">@ViewBag.ErrorMessage</label>
+    </p>
+	 
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

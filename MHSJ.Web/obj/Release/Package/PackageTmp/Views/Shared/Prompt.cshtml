@@ -1,0 +1,66 @@
+﻿@model MHSJ.Web.Models.PromptModel
+@{
+    ViewBag.Title = "消息提示";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+@{
+    if (Model.IsAutoBack)
+    {
+        if (Model.CountdownModel == 0)
+        {
+    <meta http-equiv="refresh" content="@Model.CountdownTime;URL=@Model.BackUrl"/>
+        }
+        else
+        {
+    <script type="text/javascript">
+        window.onload = function(){   
+        var time = @Model.CountdownTime; //设置时间为几秒   
+        var timer = document.getElementById('timer'); //获取ID为timer的对象   
+        timer.innerHTML = time; //初始化显示秒数   
+        time = showTime();   
+        var g = window.setInterval(function(){   
+        if(time<0){   
+            window.clearTimeout(g); //清除动画   
+            window.location.href = '@Model.BackUrl'; //跳转到指定地址   
+            //window.history.back(-1); //后退   
+        } else {   
+            showTime();   
+        }   
+        },1000);   
+        //显示函数   
+        function showTime(){   
+            timer.innerHTML = time;   
+            time--;   
+        }      
+        };
+    </script>
+        }
+    }
+}
+
+
+        
+<div class="tip">
+    <h3>@Html.Raw(Model.Message)</h3>
+    <p>
+        如果您不做出选择，将在
+        @{
+            if (Model.CountdownModel == 0)
+            {
+                @Model.CountdownTime
+            }
+            else
+            {
+                <span id="timer">@Model.CountdownTime</span>
+            }
+        }
+        秒后自动返回
+    </p>
+    @if (Model.IsShowBackLink)
+    {
+        <a href="@Model.BackUrl">←点击返回</a>
+    }
+</div>
+       

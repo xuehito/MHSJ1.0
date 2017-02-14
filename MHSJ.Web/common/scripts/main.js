@@ -187,25 +187,7 @@ function randomToast(message) {
     $.toaster({ priority: priority, title: title, message: message });
 }
 
-//点击弹出大图
-$(function () {
-    $(".wtu li").click(function () {
-        var mysrc = $(this).find("img").attr("src");
-        $("#dagImg").attr("src", mysrc);
-        var w = -($(".albig").width() / 2);
-        var h = -($(".albig").height() / 2);
-        $(".albig").css("margin-top", h).css("margin-left", w);
-        $(".albig").css("display", "block");
-        $(".nimei").css("display", "block");
-    });
-    $(".guanbi").click(function() {
-        $(".albig").css("display", "none");
-        $(".nimei").css("display", "none");
-    });
 
-    $(".nimei").click(function () {
-        $(".albig").css("display", "none");
-        $(".nimei").css("display", "none");
-    });
-});
+/*
 
+*/

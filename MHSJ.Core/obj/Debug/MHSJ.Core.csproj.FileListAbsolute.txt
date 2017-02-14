@@ -26,3 +26,17 @@ F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Core\bin\Debug\zh-CN\ChnCharInfo
 F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Core\obj\Debug\MHSJ.Core.csprojResolveAssemblyReference.cache
 F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Core\obj\Debug\MHSJ.Core.dll
 F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Core\obj\Debug\MHSJ.Core.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\MHSJ.Core.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\MHSJ.Core.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\ChineseConverter.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\ChnCharInfo.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\ChineseConverter.xml
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\ChnCharInfo.xml
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\bin\Debug\zh-CN\ChnCharInfo.resources.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\obj\Debug\MHSJ.Core.csprojResolveAssemblyReference.cache
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\obj\Debug\MHSJ.Core.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Core\obj\Debug\MHSJ.Core.pdb

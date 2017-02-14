@@ -1,0 +1,55 @@
+﻿@model MHSJ.Web.Models.Account.LoginModel
+@{
+    ViewBag.Title = "会员登陆";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="con">
+    <h2>
+        <em></em>
+        会员登录
+    </h2> 
+</div>
+<div style="width: 30%;float:right">
+    <br /><br />
+    <p>> 还没有帐号？@Html.ActionLink("立即注册","Register","Account")</p>
+    <p>> @Html.ActionLink("忘记密码？","Register","Account")</p>
+</div>
+<div style="line-height: 25px;margin-left: 50px">
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { }))
+{
+        @Html.AntiForgeryToken()
+        <input id="returnUrl" name="returnUrl" type="hidden" value="@ViewBag.returnUrl">
+        <br />
+        <p>
+            @Html.LabelFor(um => um.Name, new { @class="control-label",@style="float:left;width: 60px"})
+            @Html.TextBoxFor(um => um.Name, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "输入用户名"})
+            @Html.ValidationMessageFor(um => um.Name, String.Empty, new{@style="float:left;" })
+        </p>
+        <br /><br />
+        <p>
+            @Html.LabelFor(pw => pw.Password, new {@class="control-label",@style="float:left;width: 60px" })
+            @Html.PasswordFor(pw => pw.Password, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "输入密码"})
+            @Html.ValidationMessageFor(pw => pw.Password, String.Empty, new{@style="float:left;" })
+        </p>
+        <br /> <br />
+        <p>
+            @Html.LabelFor(code => code.VerifyCode, new {@class="control-label",@style="float:left;width: 60px" })
+            @Html.TextBoxFor(code => code.VerifyCode, new { @class = "form-control input-sm", @style = "float:left;width: 15%;margin-right: 10px", @placeholder = "输入验证码"})
+            <img align="absMiddle"  onclick="this.src='/common/tools/verifyimage.aspx?time=' + Math.random()" src="/common/tools/verifyimage.aspx" style="cursor: pointer;" alt="点击刷新"/>
+            @Html.ValidationMessageFor(code => code.VerifyCode, String.Empty, new{@style="float:left;" })
+        </p>
+    <label id="lbl-message" style="margin-left: 15px;color: #b94a48;">@ViewBag.Message</label>
+    <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl">
+    <p style="clear:left;margin-top: 15px">
+        <input id="btn-login" type="submit" name="btnLogin" value="登 陆" class="btn btn-default btn-sm" style="margin-left:60px;"/>
+        @*<input id="btn-reset" type="reset" name="btnReset" value="重 置" class="btn btn-default btn-sm" style="margin-left:25px;"/>*@
+        <label id="lbl-message" style="margin-left: 15px;color: #b94a48;">@ViewBag.ErrorMessage</label>
+    </p>
+	 
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,150 @@
+﻿@model MHSJ.Entity.V_Post
+
+@{
+    ViewBag.Title = @Model.WriterName + "-" + @Model.FromName + "-" + ViewBag.SiteTitle;
+    ViewBag.SEOKeyword = @Model.Tword + "," +@Model.WriterName + "," + @Model.FromName + "," + ViewBag.SEO;
+    ViewBag.SEODescription = @Model.Tword + "," + @Model.WriterName + "," + @Model.FromName + "," + ViewBag.SEO;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ }
+
+@*<link href="~/common/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="~/common/scripts/bootstrap.min.js"></script>
+<script src="@Url.Content("~/Common/scripts/jquery.toaster.js")" type="text/javascript"></script>*@
+
+
+<script type="text/javascript">
+    //提示
+    /*priority：success，info，warning，danger*/
+    function randomToast(message) {
+        var priority = 'danger';
+        var title = '提示';
+        $.toaster({ priority: priority, title: title, message: message });
+    }
+    function collection(id,type) {
+        //alert('收藏');
+        var url = window.location.pathname;
+        $.ajax({
+            url: "/Post/Collection",
+            type: "post",
+            //dataType: "json",
+            data: {postId:id,type:type},
+            success: function (result) {
+                if (result.state == 3) {
+                    location.href = "/Account/Login?returnUrl=" + url;
+                }
+                if (result.state == 2) {
+                    alert("收藏失败，超过最大收藏数");
+                }
+                if (result.state == 0) {
+                    alert("操作失败");
+                }
+                if (result.state == 1) {
+                    $("#lbl-message").fadeIn();
+                    $('#lbl-message').text("收藏成功");
+                    $("#lbl-message").fadeOut();
+                    //var left = parseInt($(this).offset().left) + 10, top = parseInt($(this).offset().top) - 10, obj = $(this);
+
+                    //$(this).append('<div id="jd_collection"><b>' + result.message + '<\/b></\div>');
+                    //$('#jd_collection').css({
+                    //    'position': 'absolute', 'z-index': '1', 'color': '#C30',
+                    //    'left': left + 'px', 'top': top + 'px'
+                    //});
+                    //$('#jd_collection').animate({ top: top - 20, opacity: 0 }, 1500,
+                    //function () {
+                    //    $(this).fadeOut(1500).remove();
+                    //    //var Num = parseInt(obj.find('span').text());
+                    //    //Num++;
+                    //    //obj.find('span').text(Num);
+                    //});
+                    
+                    //$('#collection').animate({ scrollTop: $('.header').offset().top }, 800);
+
+                    //if (type == "cancel") {
+                    //    $('#collection').removeClass("collection");
+                    //    $('#collection').attr("title", "收藏作品");
+                    //    $('#collection').attr("onclick", "collection(" + id + ",'collection')");
+                    //}
+                    //else
+                    if (type == "collection") {
+                        $('#collection').addClass("collection");
+                        $('#collection').attr("title", "已收藏");
+                        //$('#collection').attr("onclick", "collection(" + id + ",'cancel')");
+                    }
+
+                   
+                }
+            }
+        });
+    }
+
+    var x, y, n = 0, ny = 0, rotINT, rotYINT;
+
+    function rotateYDIV() {
+        y = document.getElementById("rotatey");
+        clearInterval(rotYINT)
+        rotYINT = setInterval("startYRotate()", 10);
+    }
+
+
+    function startYRotate() {
+        ny = ny + 1;
+        y.style.transform = "rotateY(" + ny + "deg)";
+        y.style.webkitTransform = "rotateY(" + ny + "deg)";
+        y.style.OTransform = "rotateY(" + ny + "deg)";
+        y.style.MozTransform = "rotateY(" + ny + "deg)";
+        if (ny == 180 || ny >= 360) {
+            clearInterval(rotYINT);
+            if (ny >= 360) { ny = 0; }
+        }
+    }
+</script>
+<div class="con">
+       
+    <h2>
+        <em></em>
+        <span>作品详情</span>
+        
+        <span style="float:right;margin-right: 30px;">浏览次数：@Model.Browses</span>
+    </h2> 
+</div>
+<div class="post_desc">
+      
+    <ul>
+        <li>
+            <label class="control-label">文字：</label>
+            <span><a href="/index.aspx?keyword=@Model.Tword">@Model.Tword</a></span>
+        </li>
+        <li>
+            <label class="control-label">出自：</label>
+            <span>@Model.FromName</span>
+        </li>
+        <li style="margin-bottom: 20px;">
+            <label class="control-label">作者：</label>
+            <span>@Model.WriterName</span>
+        </li>
+        @if (ViewBag.IsCollection == 0)
+        {
+            <li>
+                <div title="收藏作品" class="jd_collection" id="collection" onclick="collection(@Model.PostId,'collection')">
+                    <label id="lbl-message" style="margin-left: 35px;line-height: 25px;color: #b94a48;"></label>
+                </div>
+            </li>
+        }
+        else{
+            <li>
+                <div title="已收藏" class="jd_collection collection" id="collection" >@*onclick="collection(@Model.PostId,'cancel')"*@
+                    <label id="lbl-message" style="margin-left: 35px;line-height: 25px;color: #b94a48;"></label>
+                </div>
+             </li>
+        }
+        
+    </ul>
+    <div>
+        <img alt='@Model.ImageUrl'  src="@Model.ImageUrl" onclick="rotateYDIV()" id="rotatey" style="transform: rotateY(360deg);" title="点击图片反转"/>
+    </div>
+    
+    
+</div>
+     
+
+

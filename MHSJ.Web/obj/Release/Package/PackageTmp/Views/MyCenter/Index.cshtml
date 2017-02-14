@@ -1,0 +1,60 @@
+﻿@model MHSJ.Web.Models.Account.AccountModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div  class="uc-bd">
+    <ul class="sd uc-sd fl">
+        <li>
+            <h3>帐号信息</h3>
+            <ul class="menuul">
+                <li id="index"  class="current"><a href="@Url.Action("index","mycenter")"><i class="icon-collect"></i><span>基本资料</span></a></li>
+                <li><a href="@Url.Action("integral","mycenter")"><i class="icon-collect"></i><span>我的积分</span></a></li>
+                @*<li id="setpassword"><a href="@Url.Action("SetPassword","User")"><i class="icon-schoolarship"></i><span>修改密码</span></a></li>*@
+            </ul>
+        </li> 
+    </ul>        
+                  
+    <div class="mn">
+        <div class="uc-wp">
+            <div class="hd">
+                <h2 class="fl">基本资料</h2>
+            </div>
+            <div id="info" class="uc-data">
+                @using (Html.BeginForm("UpdateInfo", "MyCenter", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(p => p.AccountId)
+                    <br />
+                    <p>
+                        @Html.Label("用户名：", new { @class="control-label",@style="float:left;width: 60px"})
+                        <span title="@Model.Name">@Model.Name</span>
+                      </p>  
+                    <br />
+                    <p>
+                        @Html.Label("绑定邮箱：", new { @class="control-label",@style="float:left;"})
+                        @Html.TextBoxFor(e => e.Email, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "输入邮箱"})
+                        @Html.ValidationMessageFor(e => e.Email, String.Empty, new{@style="float:left;" })
+                    </p>
+                    <br /><br />
+                    <p>
+                        @Html.Label("绑定手机：", new { @class="control-label",@style="float:left;"})
+                        @Html.TextBoxFor(p => p.Phone, new { @class = "form-control input-sm", @style = "float:left;", @placeholder = "输入手机"})
+                        @Html.ValidationMessageFor(p => p.Phone, String.Empty, new{@style="float:left;" })
+                    </p>
+                    
+                <input type="hidden" name="ReturnUrl" value="@ViewBag.ReturnUrl">
+                <p style="clear:left;margin: 60px 0;">
+                    <input id="btn-login" type="submit" name="btnLogin" value="提 交" class="btn btn-default btn-sm" style="margin-left:60px;"/>
+                    <label id="lbl-message" style="margin-left: 15px;color: #b94a48;">@ViewBag.ErrorMessage</label>
+                </p>
+                    
+	            }
+        </div>
+               
+        </div>
+    </div>
+
+</div>

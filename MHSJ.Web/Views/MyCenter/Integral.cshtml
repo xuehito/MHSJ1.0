@@ -1,0 +1,50 @@
+﻿@model MHSJ.Web.Models.Account.AccountModel
+
+@{
+    ViewBag.Title = "我的积分";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div  class="uc-bd">
+    <ul class="sd uc-sd fl">
+        <li>
+            <h3>帐号信息</h3>
+            <ul class="menuul">
+                <li id="index"><a href="@Url.Action("index","mycenter")"><i class="icon-collect"></i><span>基本资料</span></a></li>
+                <li class="current"><a href="@Url.Action("integral","mycenter")"><i class="icon-collect"></i><span>我的积分</span></a></li>
+            </ul>
+        </li> 
+    </ul>        
+                  
+    <div class="mn">
+        <div class="uc-wp">
+            <div class="hd">
+                <h2 class="fl">我的积分</h2>
+                <span style="float:right;margin-right: 30px;line-height: 60px;">@Html.ActionLink("积分规则","integral","mycenter")</span>
+            </div>
+            <div id="info" class="uc-data">
+                <br />
+                <p>
+                    @Html.Label("用户名：", new { @class="control-label",@style="float:left;width: 60px"})
+                    <span title="@Model.Name">@Model.Name</span>
+                    </p>  
+                <br />
+                <p>
+                    @Html.Label("当前积分：", new { @class="control-label",@style="float:left;"})
+                    <span title="@Model.Integral">@Model.Integral</span>
+                    </p>  
+                <br />
+                <p>
+                    @Html.Label("可收藏作品数：", new { @class="control-label",@style="float:left;"})
+                    <span title="@Model.CollectionnNumber">@Model.CollectionnNumber</span>
+                    </p>  
+                <br />
+                   
+                    
+	            
+        </div>
+               
+        </div>
+    </div>
+
+</div>

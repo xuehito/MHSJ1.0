@@ -1,0 +1,123 @@
+﻿@model List<MHSJ.Entity.V_Post>
+@{
+    ViewBag.Title = "我的收藏";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    //提示
+    /*priority：success，info，warning，danger*/
+    function randomToast(message) {
+        var priority = 'danger';
+        var title = '提示';
+        $.toaster({ priority: priority, title: title, message: message });
+    }
+    function collection(a,id, type) {
+        //alert('收藏');
+        var url = window.location.pathname;
+        $.ajax({
+            url: "/Post/Collection",
+            type: "post",
+            //dataType: "json",
+            data: { postId: id, type: type },
+            success: function (result) {
+                if (result.state == 3) {
+                    location.href = "/Account/Login?returnUrl=" + url;
+                }
+                if (result.state == 2) {
+                    alert("收藏失败，超过最大收藏数");
+                }
+                if (result.state == 0) {
+                    alert("操作失败");
+                }
+                if (result.state == 1) {
+                    var msg;
+                    if (type == "cancel") {
+                        msg = "取消成功";
+                        alert(msg);
+                        a.parentNode.childNodes[0].text = "收藏";
+                        a.parentNode.childNodes[0].title = "收藏";
+                        a.parentNode.childNodes[0].onclick = eval(function () { collection(this, id, 'collection'); });
+                    }
+                    else if (type == "collection") {
+                        msg = "收藏成功";
+                        alert(msg);
+                        a.parentNode.childNodes[0].text = "取消";
+                        a.parentNode.childNodes[0].title = "取消";
+                        a.parentNode.childNodes[0].onclick = eval(function () { collection(this,  id, 'cancel'); });
+                    }
+                }
+            }
+        });
+    }
+
+    //点击弹出大图
+    $(function () {
+        $(".collections_desc li div img").click(function () {
+            var mysrc = $(this)[0].src;
+            $("#dagImg").attr("src", mysrc);
+            var w = -($(".albig").width() / 2);
+            var h = -($(".albig").height() / 2);
+            $(".albig").css("margin-top", h).css("margin-left", w);
+            $(".albig").css("display", "block");
+            $(".nimei").css("display", "block");
+        });
+        $(".guanbi").click(function () {
+            $(".albig").css("display", "none");
+            $(".nimei").css("display", "none");
+        });
+
+        $(".nimei").click(function () {
+            $(".albig").css("display", "none");
+            $(".nimei").css("display", "none");
+        });
+    });
+
+   
+</script>
+<div class="con">
+    <h2>
+        <em></em>
+        我的收藏
+    </h2> 
+</div>
+<div class="collections_desc">
+    @if (Model!=null)
+    {
+        <ul>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                <li>
+                    <div  title="查看大图">
+                        <img alt='@Model[i].ImageUrl'  src="@Model[i].ImageUrl" />
+                    </div>
+                    <div>
+                        <p class="control-label">文字：<span>@Model[i].Tword</span></p>
+                        <p class="control-label"><a title="查看详情" href='/post/n/@Model[i].PostId/' target='_blank'>详情</a></p>
+                        <p class="control-label"><a title="取消收藏" class="" id="collection" onclick=" collection(this, @Model[i].PostId, 'cancel') ">取消</a></p>
+                    </div>
+                    @* <div class="co_item">
+                        
+                        <div style="clear: both"><label class="control-label">出自：</label>@Model[i].FromName</div>
+                        <label class="control-label">作者：</label><span>@Model[i].WriterName</span>
+                    
+                        <div>
+                            
+                        </div>
+                        <div ><label class="control-label">收藏时间：</label><span>@Model[i].UpdateDate</span></div>
+                    </div>*@
+                </li>
+            
+            }
+        </ul>
+    }
+    
+</div>
+<div class="main">
+<div class="albig" id="albig">
+    <p class="guanbi">
+        <img src="~/common/images/guanb.png" />
+    </p>
+    <img id="dagImg" src=""  draggable="false"/>
+</div>
+<div class="nimei"></div>
+    </div>

@@ -46,27 +46,6 @@ namespace MHSJ.Web.admin
         }
 
         /// <summary>
-        ///     显示结果
-        /// </summary>
-        protected void ShowResult()
-        {
-            int result = RequestHelper.QueryInt("result");
-            switch (result)
-            {
-                case 1:
-                    ShowMessage("添加成功!");
-                    break;
-                case 2:
-                    ShowMessage("修改成功!");
-                    break;
-                case 3:
-                    ShowMessage("删除成功!");
-                    break;
-                    break;
-            }
-        }
-
-        /// <summary>
         ///     绑定实体
         /// </summary>
         protected void BindFrom()

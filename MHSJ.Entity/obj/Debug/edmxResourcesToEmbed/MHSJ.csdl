@@ -7,6 +7,7 @@
     <EntitySet Name="T_Word" EntityType="MHSJModel.T_Word" />
     <EntitySet Name="T_Post" EntityType="MHSJModel.T_Post" />
     <EntitySet Name="V_Post" EntityType="MHSJModel.V_Post" />
+    <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.T_AccountInfo" />
   </EntityContainer>
   <EntityType Name="T_Writer">
     <Key>
@@ -19,8 +20,8 @@
     <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
     <Property Type="Int32" Name="Status" />
-    <Property Type="DateTime" Name="CreateDate" />
-    <Property Type="DateTime" Name="UpdateDate" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
   </EntityType>
   <EntityType Name="T_From">
     <Key>
@@ -31,8 +32,8 @@
     <Property Type="String" Name="FromAliases" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="DisplayOrder" Nullable="false" />
-    <Property Type="DateTime" Name="CreateDate" />
-    <Property Type="DateTime" Name="UpdateDate" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
   </EntityType>
   <EntityType Name="T_Sites">
     <Key>
@@ -60,8 +61,8 @@
     <Property Type="String" Name="Tongjia" MaxLength="24" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="Yiti" MaxLength="24" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="State" />
-    <Property Type="DateTime" Name="CreateDate" />
-    <Property Type="DateTime" Name="UpdateDate" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
   </EntityType>
   <EntityType Name="T_Post">
     <Key>
@@ -89,8 +90,9 @@
     <Property Type="String" Name="Word" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="TWord" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="State" />
-    <Property Type="DateTime" Name="CreateDate" />
-    <Property Type="DateTime" Name="UpdateDate" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+    <Property Type="Int32" Name="Browses" />
   </EntityType>
   <EntityType Name="V_Post">
     <Key>
@@ -117,8 +119,28 @@
     <Property Type="Int32" Name="FromId" />
     <Property Type="String" Name="FromName" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="ImageUrl" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Type="DateTime" Name="CreateDate" />
-    <Property Type="DateTime" Name="UpdateDate" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
     <Property Type="Int32" Name="State" />
+    <Property Type="Int32" Name="Browses" />
+    <Property Type="Int32" Name="CollectionId" />
+    <Property Type="Int32" Name="AccountId" />
+    <Property Type="Int32" Name="clstate" />
+    <Property Type="DateTime" Name="clUpdateDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_AccountInfo">
+    <Key>
+      <PropertyRef Name="AccountId" />
+    </Key>
+    <Property Type="Int32" Name="AccountId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AccountName" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="Int32" Name="Type" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
   </EntityType>
 </Schema>

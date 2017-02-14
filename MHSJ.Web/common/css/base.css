@@ -17,12 +17,15 @@ input[type="text"], input[type="password"], textarea { outline-style:none; -webk
 textarea {resize:none;}
 body{ background:#fff url(../images/bodybg.jpg) repeat left top; }
 
-.main .con h1 {
+.main .con h2 {
       border-bottom: 1px solid rgb(222, 221, 221);
   padding: 10px 0px 10px 20px;
-  font-size: 14px;
+  font-size: 18px;
   color: #840219;
   overflow: hidden;
   margin-bottom: 20px;
 }
+
+
+.tip{ font-size:12px; margin:10px; padding:10px 30px;text-align: center;line-height: 30px}
 

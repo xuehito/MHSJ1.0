@@ -1,13 +1,27 @@
 ﻿@charset "utf-8";
 /*头部*/
+.li a:hover{color:#840219;}
 .header{height:30px;background:url(../images/topbg.png) repeat-x left top;width:100%;margin:0 auto;}
 .link_user{ margin-right: 100px;float: right;}
 .link_nav{ margin-right: 200px;float: left;}
 ul,ol{margin: 0}
-.link_ul li{float:left;font:16px "微软雅黑";color:#301018;margin-left: 10px;}
-.link_ul li a{font:16px "微软雅黑";color:#301018;line-height:30px;padding-right:5px;padding-left:5px;}
+.link_ul li.bl{border-right:1px solid #5d5d5d;height: 15px}
+.link_ul li{float:left;font:14px "宋体";color:#301018;padding: 0 12px;margin:7px 0 0 0;}
+.link_ul li a{font:14px "宋体";color:#301018;padding-right:5px;padding-left:5px;}
 .link_ul li a .logo{padding-left:5px;padding-right:400px;}
 .link_ul li a:hover{color:#840219;}
+.user_dpdown li {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    min-width: 80px;
+    padding-bottom: 8px;
+    background-color: #ECE9E9;
+    position: absolute;
+    right: 0;
+    top: 30px;
+    z-index: 1000;
+}
 /*搜索*/
 .main{width:1004px;background:url(../images/mainbg.png) repeat-y top center;margin:0 auto;clear:left;padding-bottom:30px;height:auto !important;}
 #main_so:hover{ cursor: pointer; }
@@ -48,9 +62,11 @@ ul,ol{margin: 0}
 /*文字图片*/
 .wtu{border:1px solid #8e0528;padding:16px;height:auto;margin:0 30px}
 .wtu ul{overflow:auto;margin:0 0 10px 0;}
-.wtu ul li{float:left;margin:0 10px 10px 10px;width:160px;height:196px;border:1px solid #cbcbcb;padding-top:10px;}
-.wtu li img{display:block;margin:0 auto;max-width: 144px;max-height: 160px;}
+.wtu ul li{float:left;margin:0 10px 10px 10px;width:160px;height:196px;border:1px solid #cbcbcb;padding-top:10px;position: relative}
+.wtu li img{display:block;margin:0 auto;max-width: 144px;max-height: 160px;position:relative;}
 .wtu ul p{text-align:center;line-height:30px;overflow: hidden;white-space: nowrap;margin: 0 10px;}/*width: 144px;*/
+.wtu li div.jd_collection{ position: absolute; z-index: 999;left: 10px;top: 15px;right: 0;opacity: 0; }
+.wtu li div.jd_collection:hover{opacity: 1;}
 /*翻页按钮*/
 .fanbtn{height:30px;margin: 20px 60px 10px 60px;overflow: hidden;}
 .fanbtn p{float:left;height:26px;line-height: 26px}
@@ -66,7 +82,8 @@ ul,ol{margin: 0}
 .bottom{width:100%;background:url(../images/bottom.png) repeat-x left top;position: absolute;}
 .footer p{ text-align: center;font-size: 12px;}
 .link{  padding: 60px 0 10px 10px;width: 990px;margin: 0 auto;overflow: hidden;}
-.linkCon {float: left;font-size: 12px;padding: 10px 0 10px 0;line-height: 24px;overflow: hidden;}
+.linkCon {font-size: 12px;padding: 10px 0 10px 0;line-height: 24px;overflow: hidden;}
+.linkCon ul li{ float: left;padding-right: 20px;}
 .footer p a{margin: 0px 5px;font-size: 12px;color: #111;}
 .linkCon a{margin: 0px 5px;font-size: 12px;color: #840219;}
 .footer p a:hover,.linkCon a:hover{color:#840219;}
@@ -78,7 +95,7 @@ p a:hover{color:#840219;}
 .albig{display:none;position:fixed;top:50%;left:50%;text-align:center;z-index:100;}
 .albig #dagImg{padding:10px;border:1px solid #840219;background:#fff;}
 
-.nimei{width:100%;height:100%;background:#000;opacity:0.9;filter:alpha(opacity=50);position:fixed;top:0;left:0;display:none;}
+.nimei{width:100%;height:100%;background:#000;opacity:0.9;filter:alpha(opacity=50);position:fixed;top:0;left:0;display:none;z-index: 2;}
 .guanbi{text-align:right;position:absolute;top:-15px;z-index:110;right:-10px;}
 
 /*联系我们*/
@@ -103,5 +120,52 @@ img.lazy{
 
 /*广告位*/
 .banner{ text-align: center;padding-bottom: 20px;margin-bottom: 20px}
- 
+
+/*作品详情*/
+.post_desc img{margin-left:30px; min-width: 200px;max-width:800px}
+.post_desc ul{margin-left: 30px; width: 30%;line-height: 25px;}
+.jd_collection{
+    /*width: 27px;*/
+    height: 26px;
+    cursor: pointer;
+    background: url(../images/jd_collection.png) -2px -2px no-repeat;
+    top: 29px;
+    right: 205px;
+}
+.jd_collection:hover,.jd_collection.collection {
+    background-position: -2px -56px;
+}
+
+/*我的收藏*/
+.collections_desc{width: 730px;}
+.collections_desc ul{overflow-y:hidden;margin:0 0 10px 10px;}
+.collections_desc ul li{float:left;margin:0 10px 10px 10px;width:160px;height:196px;border:1px solid #cbcbcb;padding:6px;}
+.collections_desc ul li img{ float: left;margin-right: 30px;width:144px;height:160px;}
+.collections_desc ul p{line-height:30px;float:left}
+.collections_desc ul p a{ margin: 0 2px 0 15px;color: #840219;}
+.co_item{ float: left;line-height: 55px;width: 420px;}
+.co_item a{ float: right;}
+
+/*用户中心*/
+.uc-bd .sd{ width: 220px;}
+.fl{ float: left;}
+.uc-sd > li{ margin-bottom: 10px;padding: 0 10px 20px 30px;}
+.sd li h3{margin-top:10px !important}
+.uc-sd h3{line-height: 32px;font-size: 16px;color: #676767;border-bottom: 1px solid #e5e5e5;}
+.sd li ul{padding-left:10px}
+.uc-sd > li li{margin-left: 30px;padding: 5px 0;line-height: 24px;}
+.uc-sd a{display: block;width: 100%;height: 24px;color: #301018;}
+.uc-bd .mn{ margin-left: 230px;}
+.uc-wp > .hd{  height: 44px;border-bottom: 1px solid #e5e5e5;}
+.uc-wp > .hd h2{margin-right: 16px; line-height: 20px;font-size: 18px;color: #676767;}
+.uc-data ul li{ 
+    margin-left: 20px;
+    width: 144px;
+    line-height: 40px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;}
+.uc-data{ line-height: 25px;}
+li.current span{ color: #840219;text-decoration: underline;}
+
 

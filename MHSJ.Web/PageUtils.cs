@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Security;
 using MHSJ.Core.Common;
+using MHSJ.Core.Service.Account;
 using MHSJ.Core.Service.Admin;
 using MHSJ.Entity;
 
@@ -33,6 +34,23 @@ namespace MHSJ.Web
         }
 
         /// <summary>
+        ///     是否前台登陆
+        /// </summary>
+        public static bool IsAccountLogin
+        {
+            get
+            {
+                HttpCookie c = ReadAccountCookie();
+
+                if (c != null)
+                {
+                    return StringHelper.StrToInt(c["userid"], 0) > 0;
+                }
+                return false;
+            }
+        }
+
+        /// <summary>
         ///     登陆用户ID
         /// </summary>
         public static int CurrentUserId
@@ -48,6 +66,21 @@ namespace MHSJ.Web
         }
 
         /// <summary>
+        ///     登陆前台用户ID
+        /// </summary>
+        public static int CurrentAccountId
+        {
+            get
+            {
+                if (IsAccountLogin)
+                {
+                    return StringHelper.StrToInt(ReadAccountCookie()["userid"], 0);
+                }
+                return 0;
+            }
+        }
+
+        /// <summary>
         ///     登陆名
         /// </summary>
         public static string CurrentUserName
@@ -57,6 +90,21 @@ namespace MHSJ.Web
                 if (IsLogin)
                 {
                     return HttpContext.Current.Server.UrlDecode(ReadUserCookie()["username"]);
+                }
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        ///     前台登陆名
+        /// </summary>
+        public static string CurrentAccountName
+        {
+            get
+            {
+                if (IsAccountLogin)
+                {
+                    return HttpContext.Current.Server.UrlDecode(ReadAccountCookie()["username"]);
                 }
                 return string.Empty;
             }
@@ -79,7 +127,22 @@ namespace MHSJ.Web
         }
 
         /// <summary>
-        ///     当前用户
+        ///     当前前台Key
+        /// </summary>
+        public static string CurrentAccountKey
+        {
+            get
+            {
+                if (IsAccountLogin)
+                {
+                    return ReadAccountCookie()["key"];
+                }
+                return string.Empty;
+            }
+        }
+
+        /// <summary>
+        ///     当前后台用户
         /// </summary>
         public static UserInfo CurrentUser
         {
@@ -88,6 +151,21 @@ namespace MHSJ.Web
                 if (IsLogin)
                 {
                     return UserManager.GetUser(CurrentUserId);
+                }
+                return null;
+            }
+        }
+
+        /// <summary>
+        ///     当前前台用户
+        /// </summary>
+        public static T_AccountInfo CurrentAccount
+        {
+            get
+            {
+                if (IsAccountLogin)
+                {
+                    return Biz_AccountManager.biz_account.GetSingleaAccount(CurrentAccountId);
                 }
                 return null;
             }
@@ -145,12 +223,40 @@ namespace MHSJ.Web
         private static readonly string CookieUser = ConfigHelper.SitePrefix + "amdin";
 
         /// <summary>
+        ///     前台用户COOKIE名
+        /// </summary>
+        private static readonly string CookieAccount = ConfigHelper.SitePrefix;
+
+        /// <summary>
         ///     读当前用户COOKIE
         /// </summary>
         /// <returns></returns>
         public static HttpCookie ReadUserCookie()
         {
             return HttpContext.Current.Request.Cookies[CookieUser];
+        }
+
+        /// <summary>
+        ///     读当前前台用户COOKIE
+        /// </summary>
+        /// <returns></returns>
+        public static HttpCookie ReadAccountCookie()
+        {
+            return HttpContext.Current.Request.Cookies[CookieAccount];
+        }
+
+        /// <summary>
+        ///     移除当前前台用户COOKIE
+        /// </summary>
+        /// <returns></returns>
+        public static bool RemoveAccountCookie()
+        {
+            var cookie = new HttpCookie(CookieAccount);
+            cookie.Values.Clear();
+            cookie.Expires = DateTime.Now.AddYears(-1);
+
+            HttpContext.Current.Response.AppendCookie(cookie);
+            return true;
         }
 
         /// <summary>
@@ -181,6 +287,43 @@ namespace MHSJ.Web
             if (cookie == null)
             {
                 cookie = new HttpCookie(CookieUser);
+            }
+            if (expires > 0)
+            {
+                cookie.Values["expires"] = expires.ToString();
+                cookie.Expires = DateTime.Now.AddMinutes(expires);
+            }
+            else
+            {
+                int temp_expires = Convert.ToInt32(cookie.Values["expires"]);
+                if (temp_expires > 0)
+                {
+                    cookie.Expires = DateTime.Now.AddMinutes(temp_expires);
+                }
+            }
+            cookie.Values["userid"] = userID.ToString();
+            cookie.Values["username"] = HttpContext.Current.Server.UrlEncode(userName);
+            cookie.Values["key"] =
+                StringHelper.GetMD5(userID + HttpContext.Current.Server.UrlEncode(userName) + password);
+
+            HttpContext.Current.Response.AppendCookie(cookie);
+            return true;
+        }
+
+        /// <summary>
+        ///     写/改当前前台用户COOKIE
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <param name="expires"></param>
+        /// <returns></returns>
+        public static bool WriteAccountCookie(int userID, string userName, string password, int expires)
+        {
+            HttpCookie cookie = HttpContext.Current.Request.Cookies[CookieAccount];
+            if (cookie == null)
+            {
+                cookie = new HttpCookie(CookieAccount);
             }
             if (expires > 0)
             {

@@ -212,23 +212,26 @@ namespace MHSJ.Web.admin
                 case "10": return "汉隶";
                 case "11": return "简牍";
                 case "12": return "摩崖";
-                case "13": return "明清";
+                //case "13": return "明清";
                 case "14": return "大篆";
                 case "15": return "小篆";
                 case "16": return "甲骨";
                 case "17": return "中山";
                 //case "18": return "汗篆";
-                case "19": 
-                    return "端瓦";//return "端额";
+                //case "19": 
+                //    return "端瓦";//return "端额";
                 case "20": return "简帛";
                 case "21": return "秦汉";
                 case "22":
                     return "流派";//return "明清";
                 case "23": return "鸟虫";
-                case "24": return "园朱";
-                case "25": return "玉篆";
+                //case "24": return "园朱";
+                //case "25": return "玉篆";
                 case "26": return "叠篆";
-                case "27": return "钱币";
+                //case "27": return "钱币";
+                case "28": return "其他";
+                case "29": return "其他";
+                case "30": return "其他";
             }
             return null;
         }

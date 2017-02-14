@@ -9,3 +9,9 @@ F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Entity\bin\Debug\MHSJ.Entity.dll
 F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Entity\bin\Debug\MHSJ.Entity.pdb
 F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Entity\obj\Debug\MHSJ.Entity.dll
 F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Entity\obj\Debug\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Entity\bin\Debug\MHSJ.Entity.dll.config
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Entity\bin\Debug\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Entity\bin\Debug\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Entity\obj\Debug\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Entity\obj\Debug\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Entity\obj\Debug\MHSJ.Entity.csprojResolveAssemblyReference.cache

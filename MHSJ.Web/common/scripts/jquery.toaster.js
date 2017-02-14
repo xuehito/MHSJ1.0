@@ -145,7 +145,7 @@
 	var settings = {};
 	$.extend(settings, defaults);
 
-	$.toaster = function (options)
+	jQuery.toaster = function (options)
 	{
 		if (typeof options === 'object')
 		{

@@ -63,6 +63,7 @@
     <EntitySetMapping Name="T_Post">
       <EntityTypeMapping TypeName="MHSJModel.T_Post">
         <MappingFragment StoreEntitySet="T_Post">
+          <ScalarProperty Name="Browses" ColumnName="Browses" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
           <ScalarProperty Name="State" ColumnName="State" />
@@ -93,6 +94,11 @@
     <EntitySetMapping Name="V_Post">
       <EntityTypeMapping TypeName="MHSJModel.V_Post">
         <MappingFragment StoreEntitySet="V_Post">
+          <ScalarProperty Name="clUpdateDate" ColumnName="clUpdateDate" />
+          <ScalarProperty Name="clstate" ColumnName="clstate" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+          <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+          <ScalarProperty Name="Browses" ColumnName="Browses" />
           <ScalarProperty Name="State" ColumnName="State" />
           <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
           <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
@@ -117,6 +123,22 @@
           <ScalarProperty Name="SimplifiedWord" ColumnName="SimplifiedWord" />
           <ScalarProperty Name="WordId" ColumnName="WordId" />
           <ScalarProperty Name="PostId" ColumnName="PostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_AccountInfo">
+      <EntityTypeMapping TypeName="MHSJModel.T_AccountInfo">
+        <MappingFragment StoreEntitySet="T_AccountInfo">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+          <ScalarProperty Name="AccountId" ColumnName="AccountId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

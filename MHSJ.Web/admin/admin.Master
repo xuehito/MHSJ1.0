@@ -34,7 +34,7 @@
                     <li class="<%=GetCssName("fromlist") %>"><a href="fromlist.aspx">出处管理</a></li>
                     <%--<li class="<%=GetCssName("categorylist") %>"><a href="categorylist.aspx">分类管理</a></li>
                     <li class="<%=GetCssName("taglist") %>"><a href="taglist.aspx">标签管理</a></li>--%>
-                   
+                    <li class="<%=GetCssName("userlist") %>"><a href="userlist.aspx">用户管理</a></li>
                     <li class="<%=GetCssName("upfilelist") %>"><a href="upfilelist.aspx">附件管理</a></li>
                     
                 </ul>
@@ -42,8 +42,8 @@
                 <%if (PageUtils.CurrentUser.Type == (int)UserType.Administrator){  %>
                 <h4>网站管理</h4>
                 <ul>
-                    <%--<li class="<%=GetCssName("linklist") %>"><a href="linklist.aspx">链接管理</a></li>
-                    <li class="<%=GetCssName("userlist") %>"><a href="userlist.aspx">作者管理</a></li>
+                    <li class="<%=GetCssName("linklist") %>"><a href="linklist.aspx">友链管理</a></li>
+                    <%--<li class="<%=GetCssName("userlist") %>"><a href="userlist.aspx">作者管理</a></li>
                     <li class="<%=GetCssName("database") %>"><a href="database.aspx">数据管理</a></li>--%>  
                     <li class="<%=GetCssName("setting") %>"><a href="setting.aspx">网站设置</a></li> 
                            

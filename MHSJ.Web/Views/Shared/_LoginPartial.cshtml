@@ -1,0 +1,65 @@
+﻿
+<link href="@Url.Content("~/Content/bootstrap.min.js")" rel="stylesheet" type="text/css" />
+<style>
+    .dropdown-menu{min-width: 90px;}
+</style>
+
+@using MHSJ.Web
+@if (PageUtils.IsAccountLogin)
+{
+    <text>
+        <ul style="float:right;margin-right: 50px" class="link_ul">
+            
+            <li class="bl">@Html.ActionLink("我的收藏","collections","mycenter")</li>
+            
+            <li class="bl">@Html.ActionLink("积分","integral","mycenter")：@ViewBag.Integral</li>
+            
+            <li> @Html.ActionLink(PageUtils.CurrentAccount.Name, "index", "mycenter", routeValues: null, htmlAttributes: new { @class = "username", title = "管理" })</li>
+            
+            <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">退出</a>
+            
+                }</li>
+            
+           @*<li class="user_dpdown">
+					<span class="unick bl">薛海涛</span>
+					<em class="noticeDot dn" id="noticeDot_name"></em>
+					<i></i>
+					<ul class="reset">
+						<li>
+							<a href="http://www.lagou.com/s/subscribe.html" data-lg-tj-id="5a00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">我的订阅</a>
+						</li>
+						<li>
+							<a href="http://www.lagou.com/mycenter/invitation.html" id="invitationLink" data-lg-tj-id="5b00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow" data-lg-gatj-msg="header_c,职位邀请,number">职位邀请</a>
+							<em class="noticeDot dn" id="noticeDot_invitation"></em>
+						</li>
+
+				        <li>
+							<a href="http://account.lagou.com/account/accountBind.html" data-lg-tj-id="5c00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">帐号设置</a>
+						</li>
+
+						<li>
+							<a href="http://hr.lagou.com/dashboard/" data-lg-tj-id="5d00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">去企业版</a>
+						</li>
+
+						<li>
+							<a href="http://www.lagou.com/frontLogout.do" data-lg-tj-id="5e00" data-lg-tj-no="idnull" data-lg-tj-cid="idnull" rel="nofollow">退出</a>
+						</li>
+					</ul>
+				</li>*@
+            <script type="text/javascript">
+                $('.dropdown-toggle').val();
+            </script>
+        </ul>
+    </text>
+    
+}
+else
+{
+     <ul class="link_user link_ul">
+            <li>@Html.ActionLink("登录", "Login", "Account")</li>
+                
+            <li>@Html.ActionLink("注册", "Register", "Account")</li>
+        </ul>
+}

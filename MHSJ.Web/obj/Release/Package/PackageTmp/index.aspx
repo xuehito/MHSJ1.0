@@ -1,16 +1,18 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="MHSJ.Web.index" %>
+<%@ Import Namespace="MHSJ.Web" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>梅花书检</title>
+<title>梅花书检-专业为书法爱好者提供书法在线查询的平台</title>
 <meta name="keywords" content="<%=Keywords %>"/>
 <meta name="description" content="<%=Description %>" />
 
 <link rel="stylesheet" type="text/css" href="/common/css/base.css" />
 <link href="common/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    
 <link rel="stylesheet" type="text/css" href="/common/css/main.css" />
 <link href="common/css/slider.css" rel="stylesheet" type="text/css" />
 <%--<link href="common/css/checkBo.min.css" rel="stylesheet" type="text/css" />--%>
@@ -46,22 +48,43 @@
     YBZ_tipsopen = true; //是否在网页输入框中加入手写提示
     YBZ_fixed = true; //是否固定手写窗口
 </script> 
+
+    <!-- 请置于所有广告位代码之前 -->
+<script type="text/javascript" src="http://cbjs.baidu.com/js/m.js"></script>
 </head>
 <body>
-    
+    <!-- 广告位：边侧广告 -->
+<script type="text/javascript">BAIDU_CLB_fillSlot("1168834");</script>
+
     <!--头部-->
     <div class="header" >
     <ul class="link_nav link_ul">
-        <li><a href="#">梅花书检</a></li>
-        <li><a href="#">梅花消息</a></li>
-        <li><a href="#">梅花鉴赏</a></li>
+        <li><a href="/index.aspx">首页</a></li>
+       <%-- <li><a href="#">梅花消息</a></li>
+        <li><a href="#">梅花鉴赏</a></li>--%>
     </ul>
-    <ul class="link_user link_ul">
-    	<%--<li><a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>|</li>
-        <li><a target="_self" href="javascript:void(0)" onclick="shoucang(document.title,window.location)">收藏本站</a>|</li>--%>
-        <li><a href="#">登录</a></li>
-        <li><a href="#">注册</a></li>
-    </ul>
+        <%if(PageUtils.IsAccountLogin) %>
+    <%{%>
+        <ul class="link_user link_ul">
+    	    <%--<li><a href="#" onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('');">设为首页</a>|</li>
+            <li><a target="_self" href="javascript:void(0)" onclick="shoucang(document.title,window.location)">收藏本站</a>|</li>
+            <li><a href="/Account/Login">登录</a></li>
+            <li><a href="#">注册</a></li>--%>
+
+             <li class="bl"><a href="/mycenter/collections" title="我的收藏">我的收藏</a></li>
+             <li class="bl"><a href="/mycenter/integral" title="查看积分">积分</a>：<%= Integral%></li>
+             <li><a href="/mycenter" title="管理"><%=PageUtils.CurrentAccount.Name %></a></li>
+             <li><a href="/Account/Logout">退出</a></li>
+        </ul>
+       <% }%>
+         <%else
+          {%>
+        
+             <ul class="link_user link_ul">
+                 <li><a href="/Account/Login">登录</a></li>
+                 <li><a href="/Account/Register">注册</a></li>
+             </ul>
+        <% }%>
 </div>
     <!--搜索-->
   <div class="main">
@@ -159,13 +182,13 @@
         <div style="float: left">
     	<p >作者：
         <span id="pcont1"><input name="writer" class="txtWriter" type="text"  value="" data-provide="typeahead" placeholder="请输入作者" /></span>
-            <a class="jiaWriter" href="javast:;" title="增加"><img src="common/images/jiabtn.png" alt=""/></a>
-            <a class="jianWriter" href="javast:;" title="减少"><img src="common/images/jianbtn.png" /></a>
+            <a class="jiaWriter" href="javascript:void(0)" title="增加"><img src="common/images/jiabtn.png" alt=""/></a>
+            <a class="jianWriter" href="javascript:void(0)" title="减少"><img src="common/images/jianbtn.png" /></a>
         </p>
         <p>出处：
         <span id="pcont2"><input name="from" type="text" class="txtFrom" value="" title="this.text" placeholder="请输入出处" /></span>
-        <a class="jiaFrom" href="javascript:;"  title="增加"><img src="common/images/jiabtn.png" /></a>
-        <a class="jianFrom" href="javascript:;" title="减少"><img src="common/images/jianbtn.png" /></a>
+        <a class="jiaFrom" href="javascript:void(0)"  title="增加"><img src="common/images/jiabtn.png" /></a>
+        <a class="jianFrom" href="javascript:void(0)" title="减少"><img src="common/images/jianbtn.png" /></a>
         </p>
         </div>
 
@@ -237,7 +260,7 @@
 	
     <div class="albig" id="albig">
         <p class="guanbi">
-            <img src="common/images/guanb.png" />
+            <img src="~/common/images/guanb.png" />
         </p>
         <img id="dagImg" src=""  draggable="false"/>
     </div>
@@ -256,9 +279,10 @@
         <div class="link">
             <p>友情链接</p>
             <div class="linkCon">
-			     <ul>
+                <%=QueryLink() %>
+			    <%-- <ul>
 			         <li><a target="_blank" href="http://www.mhsj.top">梅花书检</a></li>
-                 </ul>
+                 </ul>--%>
             </div>
         </div>
 
@@ -412,9 +436,9 @@
             $('#QueryType').val(queryType);
         }
 
-        $('#pcont1 input').onfocus(function() {
-            alert("asd");
-        });
+        //$('#pcont1 input').onfocus(function() {
+        //    alert("asd");
+        //});
     });
 
     $('img.lazy').lazyload();
@@ -444,6 +468,40 @@
             this.submit();
         }
     });
+</script>
+<script type="text/javascript">
+    function collection1(id) {
+        //alert('收藏');
+        var url = window.location.pathname;
+        var type = "collection";
+        $.ajax({
+            url: "/Post/Collection",
+            type: "post",
+            //dataType: "json",
+            data: { postId: id, type: type },
+            success: function (result) {
+                if (result.state == 3) {
+                    location.href = "/Account/Login?returnUrl=" + url;
+                }
+                if (result.state == 2) {
+                    alert("收藏失败，超过最大收藏数");
+                    return;
+                }
+                if (result.state == 0) {
+                    alert("操作失败");
+                    return;
+                }
+                if (result.state == 1) {
+                    if (type == "collection") {
+                        alert("收藏成功");
+                        //$('#collection').addClass("collection");
+                        //$('#collection').attr("title", "已收藏");
+                        //$('#collection').attr("onclick", "collection(" + id + ",'cancel')");
+                    }
+                }
+            }
+        });
+    }
 
 </script>
 

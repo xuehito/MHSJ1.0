@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MHSJ.Core.Common;
+using MHSJ.Core.Service.Account;
 using MHSJ.Core.Service.Admin;
 using MHSJ.Entity;
 
@@ -28,15 +29,27 @@ namespace MHSJ.Web
         public string Writers;
         public string Xiangqing;
 
+        public int PostId { get; set; }
         public string Jianti { get; set; }
         public string Pinyin { get; set; }
         public string Tongjia { get; set; }
         public string Fanti { get; set; }
         public string Yiti { get; set; }
 
+        public int Integral { get; set; }//积分
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Query();
+
+            if (PageUtils.IsAccountLogin)
+            {
+                var info = Biz_AccountManager.biz_account.GetAccountInfo(PageUtils.CurrentAccountId);
+                if (info != null)
+                {
+                    Integral = Convert.ToInt32(info.Integral);
+                }
+            }
         }
 
         private bool CheckQuery(string keyword)
@@ -93,10 +106,12 @@ namespace MHSJ.Web
 
             if (listItem.Count > 0)
             {
+                PostId = listItem[0].PostId;
                 Jianti = listItem[0].SimplifiedWord;
                 Pinyin=listItem[0].Pinyin;
                 Fanti=listItem[0].TraditionalWord;
                 Yiti=listItem[0].Yiti;
+                
                 //    var strXq = new StringBuilder();
                 //    strXq.Append("<div class='wtu'>");
                 //    strXq.AppendFormat("<p class='xiangqing'><span>简体：</span>{0}(<span class='pinyin'>{1}</span>)</p>",
@@ -120,10 +135,19 @@ namespace MHSJ.Web
                     string imgUrl = null;
                     if (!string.IsNullOrEmpty(item.ImageUrl)) imgUrl = item.ImageUrl.Split('/')[3].Split('.')[0];
 
-                    strList.AppendFormat("<li title='{0}'>", imgUrl);
-                    strList.AppendFormat("<div><img class='lazy' data-original='{0}' alt='{1}' draggable='false'/></div>", item.ImageUrl,
+                    var word = item.Tword;
+                    //if(!string.IsNullOrEmpty(item.Tword))
+                    //{
+                    //    word = item.Tword;
+                    //}
+                    strList.AppendFormat("<li title='{0}' class='position:relative'>", imgUrl);
+                    strList.AppendFormat("<div class='jd_collection' title='收藏作品'  onclick='collection1({0})'></div>", item.PostId);
+                    strList.AppendFormat("<div><a href='/post/n/{0}/' target='_blank'>",item.PostId);
+                    strList.AppendFormat("<div><img class='lazy' data-original='{0}' alt='{1}' draggable='false'/></div>", SiteUrl + item.ImageUrl,
                         imgUrl);
-                    strList.AppendFormat("<div><p><span style='color:#8e0528'>{2}</span>.{0}.{1}</p></div>", item.WriterName, item.FromName, item.Tword);
+                    
+                    strList.AppendFormat("<div><p><span style='color:#8e0528'>{2}</span>.{0}.{1}</p></div>", item.WriterName, item.FromName, word);
+                    strList.Append("</a></div>");
                     strList.Append("</li>");
                 }
             }

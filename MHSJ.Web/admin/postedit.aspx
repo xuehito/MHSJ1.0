@@ -206,7 +206,8 @@
                     <asp:ListItem Value="10" Text="汉隶"></asp:ListItem>
                     <asp:ListItem Value="11" Text="简牍"></asp:ListItem>
                     <asp:ListItem Value="12" Text="摩崖"></asp:ListItem>
-                    <asp:ListItem Value="13" Text="明清"></asp:ListItem>
+                    <%--<asp:ListItem Value="13" Text="明清"></asp:ListItem>--%>
+                    <asp:ListItem Value="28" Text="其他"></asp:ListItem>
                 </asp:RadioButtonList>
             </p>
             <p>
@@ -217,9 +218,10 @@
                     <asp:ListItem Value="16" Text="甲骨"></asp:ListItem>
                     <asp:ListItem Value="17" Text="中山"></asp:ListItem>
                     <%--<asp:ListItem Value="18" Text="汗篆"></asp:ListItem>--%>
-                    <asp:ListItem Value="19" Text="端额"></asp:ListItem>
+                    <%--<asp:ListItem Value="19" Text="端额"></asp:ListItem>--%>
                     <asp:ListItem Value="20" Text="简帛"></asp:ListItem>
-                    <asp:ListItem Value="27" Text="钱币"></asp:ListItem>
+                    <%--<asp:ListItem Value="27" Text="钱币"></asp:ListItem>--%>
+                    <asp:ListItem Value="29" Text="其他"></asp:ListItem>
                 </asp:RadioButtonList>
             </p>
             <p>
@@ -228,13 +230,14 @@
                     <asp:ListItem Value="21" Text="秦汉"></asp:ListItem>
                     <asp:ListItem Value="22" Text="明清"></asp:ListItem>
                     <asp:ListItem Value="23" Text="鸟虫"></asp:ListItem>
-                    <asp:ListItem Value="24" Text="园朱"></asp:ListItem>
-                    <asp:ListItem Value="25" Text="玉篆"></asp:ListItem>
+                   <%-- <asp:ListItem Value="24" Text="园朱"></asp:ListItem>
+                    <asp:ListItem Value="25" Text="玉篆"></asp:ListItem>--%>
                     <asp:ListItem Value="26" Text="叠篆"></asp:ListItem>
+                    <asp:ListItem Value="30" Text="其他"></asp:ListItem>
                 </asp:RadioButtonList>
             </p>
         </div>
-        <p>
+        <%--<p>
             方向:
             <span style="border: 1px #ccc solid;padding: 5px">
                 <asp:RadioButtonList ID="RadioWordDirection" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
@@ -244,7 +247,7 @@
                 </asp:RadioButtonList>
                 <asp:HiddenField ID="HidRadioWordDirection" runat="server" /> 
             </span>
-        </p>
+        </p>--%>
         
         
     </div>
