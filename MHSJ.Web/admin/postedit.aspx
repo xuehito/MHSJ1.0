@@ -237,17 +237,17 @@
                 </asp:RadioButtonList>
             </p>
         </div>
-        <%--<p>
+        <p>
             方向:
             <span style="border: 1px #ccc solid;padding: 5px">
                 <asp:RadioButtonList ID="RadioWordDirection" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
-                    <asp:ListItem Value="0" Text="无" Selected="True"></asp:ListItem>
+                   <%-- <asp:ListItem Value="0" Text="无" Selected="True"></asp:ListItem>--%>
                     <asp:ListItem Value="1" Text="正" ></asp:ListItem>
-                    <asp:ListItem Value="2" Text="反"></asp:ListItem>
+                    <%--<asp:ListItem Value="2" Text="反"></asp:ListItem>--%>
                 </asp:RadioButtonList>
                 <asp:HiddenField ID="HidRadioWordDirection" runat="server" /> 
             </span>
-        </p>--%>
+        </p>
         
         
     </div>

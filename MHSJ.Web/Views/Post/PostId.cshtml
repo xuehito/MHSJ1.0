@@ -13,22 +13,51 @@
 
 
 <script type="text/javascript">
-    //提示
+
+    $(function() {
+        $("#rotateX").click(function () {
+            setTimeout(function() {
+                $("#rotateY").css("background", "#FFF");
+                $("#rotateX").css("background", "#ccc");
+                if ($("#rotateX").attr("rota") == "2") {
+                    rotateYDIV();
+                    $("#rotateX").attr("rota", "1");
+                    $("#rotateY").attr("rota", "2");
+                }
+            }, 1000);
+
+        });
+        $("#rotateY").click(function () {
+            setTimeout(function() {
+                $("#rotateX").css("background", "#FFF");
+                $("#rotateY").css("background", "#ccc");
+
+                if ($("#rotateY").attr("rota") == "2") {
+                    rotateYDIV();
+                    $("#rotateY").attr("rota", "1");
+                    $("#rotateX").attr("rota", "2");
+                }
+            }, 1000);
+        });
+    });
+
+//提示
     /*priority：success，info，warning，danger*/
     function randomToast(message) {
         var priority = 'danger';
         var title = '提示';
         $.toaster({ priority: priority, title: title, message: message });
     }
-    function collection(id,type) {
+
+    function collection(id, type) {
         //alert('收藏');
         var url = window.location.pathname;
         $.ajax({
             url: "/Post/Collection",
             type: "post",
             //dataType: "json",
-            data: {postId:id,type:type},
-            success: function (result) {
+            data: { postId: id, type: type },
+            success: function(result) {
                 if (result.state == 3) {
                     location.href = "/Account/Login?returnUrl=" + url;
                 }
@@ -56,7 +85,7 @@
                     //    //Num++;
                     //    //obj.find('span').text(Num);
                     //});
-                    
+
                     //$('#collection').animate({ scrollTop: $('.header').offset().top }, 800);
 
                     //if (type == "cancel") {
@@ -71,7 +100,7 @@
                         //$('#collection').attr("onclick", "collection(" + id + ",'cancel')");
                     }
 
-                   
+
                 }
             }
         });
@@ -94,9 +123,12 @@
         y.style.MozTransform = "rotateY(" + ny + "deg)";
         if (ny == 180 || ny >= 360) {
             clearInterval(rotYINT);
-            if (ny >= 360) { ny = 0; }
+            if (ny >= 360) {
+                ny = 0;
+            }
         }
     }
+
 </script>
 <div class="con">
        
@@ -124,23 +156,30 @@
         </li>
         @if (ViewBag.IsCollection == 0)
         {
-            <li>
+            <li style="float:left">
                 <div title="收藏作品" class="jd_collection" id="collection" onclick="collection(@Model.PostId,'collection')">
                     <label id="lbl-message" style="margin-left: 35px;line-height: 25px;color: #b94a48;"></label>
                 </div>
             </li>
         }
         else{
-            <li>
+            <li style="float:left">
                 <div title="已收藏" class="jd_collection collection" id="collection" >@*onclick="collection(@Model.PostId,'cancel')"*@
                     <label id="lbl-message" style="margin-left: 35px;line-height: 25px;color: #b94a48;"></label>
                 </div>
              </li>
         }
-        
+          <li>
+              <div title="正" class="collection"  style="float: left;">
+                  <a href="#" id="rotateX" style="margin-left: 10px;line-height: 26px;color: #b94a48;border: 1px #ccc solid;padding: 5px 8px;background: #ccc;" rota="1">正</a>
+              </div>
+               <div title="反" class="collection">
+                  <a href="#" id="rotateY" style="margin-left: 10px;line-height: 26px;color: #b94a48;border: 1px #ccc solid;padding: 5px 8px;"  rota="2">反</a>
+              </div>
+          </li>
     </ul>
     <div>
-        <img alt='@Model.ImageUrl'  src="@Model.ImageUrl" onclick="rotateYDIV()" id="rotatey" style="transform: rotateY(360deg);" title="点击图片反转"/>
+        <img alt='@Model.ImageUrl'  src="@Model.ImageUrl" id="rotatey" style="transform: rotateY(360deg);" />
     </div>
     
     
