@@ -1,0 +1,14 @@
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Release\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Release\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Release\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Release\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ\MHSJ.Data\obj\Release\MHSJ.Data.csprojResolveAssemblyReference.cache
+F:\我的资料\Program\MHSJ\MHSJ.Data\obj\Release\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ\MHSJ.Data\obj\Release\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Release\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Release\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Release\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Release\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\obj\Release\MHSJ.Data.csprojResolveAssemblyReference.cache
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\obj\Release\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\obj\Release\MHSJ.Data.pdb

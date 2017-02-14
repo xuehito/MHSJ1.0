@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F30237E9-C4F2-4CBD-B01C-FC271FD92CA6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MHSJ.Core</RootNamespace>
+    <AssemblyName>MHSJ.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ChineseConverter">
+      <HintPath>D:\Program Files (x86)\Microsoft Visual Studio International Pack\Traditional Chinese to Simplified Chinese Conversion Library and Add-In Tool\ChineseConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="ChnCharInfo">
+      <HintPath>D:\Program Files (x86)\Microsoft Visual Studio International Pack\Simplified Chinese Pin-Yin Conversion Library\ChnCharInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CacheHelper.cs" />
+    <Compile Include="Common\Caches.cs" />
+    <Compile Include="Common\ConfigHelper.cs" />
+    <Compile Include="Common\NetHelper.cs" />
+    <Compile Include="Common\RequestHelper.cs" />
+    <Compile Include="Common\StringHelper.cs" />
+    <Compile Include="Controls\Pager.cs" />
+    <Compile Include="Data\DataSql.cs" />
+    <Compile Include="Data\Interface\IUser.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Admin\Biz_PostManager.cs" />
+    <Compile Include="Service\Admin\Biz_WordManager.cs" />
+    <Compile Include="Service\Admin\PostManager.cs" />
+    <Compile Include="Service\SettingManager.cs" />
+    <Compile Include="Service\Admin\UserManager.cs" />
+    <Compile Include="Service\Admin\WriterManager.cs" />
+    <Compile Include="Service\Admin\FromManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MHSJ.Data\MHSJ.Data.csproj">
+      <Project>{41969443-8D61-437B-825B-EC59A1310C38}</Project>
+      <Name>MHSJ.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHSJ.Entity\MHSJ.Entity.csproj">
+      <Project>{D764E2E3-62BB-4D8D-99DC-CB01265935AE}</Project>
+      <Name>MHSJ.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

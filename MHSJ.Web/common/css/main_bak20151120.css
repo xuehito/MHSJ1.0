@@ -1,0 +1,102 @@
+@charset "utf-8";
+/*头部*/
+.header{height:84px;background:url(../images/topbg.png) repeat-x left top;width:100%;margin:0 auto;}
+.link_ul{width:1000px;margin:0 auto;}
+.link_ul li{float:left;height:80px;line-height:80px;font:16px "微软雅黑";color:#301018;}
+.link_ul li a{font:16px "微软雅黑";color:#301018;line-height:80px;padding-right:5px;padding-left:5px;}
+.link_ul li a .logo{padding-left:5px;padding-right:400px;}
+.link_ul li a:hover{color:#840219;}
+/*搜索*/
+.main{width:1004px;background:url(../images/mainbg.png) repeat-y top center;margin:0 auto;clear:left;padding-bottom:30px;height:auto !important;}
+#main_so:hover{ cursor: pointer; }
+.sousuo{width:1004px;margin:0 auto;clear:left;padding-top:60px;padding-bottom:70px;text-align: center;width: 50%}
+.kuan input{height:26px;width:326px;border:2px solid #8e0528;float:left;font:14px "宋体";color:#60666f;line-height:26px;}/*text-indent:10px;*/
+#main_so{height:36px;width:78px;float:left;border:0;font:16px "微软雅黑";color:#ffffff;text-align:center;}
+.nav-tabs>.active>a, .nav-tabs>.active>a:hover, .nav-tabs>.active>a:focus{ background-color: #ddd;}
+.tabbable li a{color:#000000}
+.btn-danger{ background-color: #8e0528;background-image: linear-gradient(to bottom,#8e0528,#bd362f);}
+/*字体*/
+.ziti{padding-left:30px;}
+.ziti li{height:40px;background:url(../images/li.png) no-repeat left center;line-height:40px;text-indent:18px;clear:left;font:14px "宋体";color:#333;}
+.ziti li input{margin:0 2px 3px 0;}
+.ziti li label{padding-right:37px;display: inline;}
+.ziti li label.zheng,.ziti li label.fan{height:21px;padding-right:5px;}
+.ziti li label.zheng input,.ziti li label.fan input{margin-right:0px;}
+.ziti li .zhuan{background:url(../images/zf.png) no-repeat 87px 8px;line-height:40px;font:14px "宋体";color:#333;}
+.ziti li label.sb{font:16px "微软雅黑";color:#101010;line-height:40px;}
+.ziti li .zhuan .sb{padding-right:30px;}
+.ziti li label.fan {padding-right:21px;}
+.ziti li label.qb{color:#8e0528;}
+/*作者*/
+.zz{height:82px;border:1px solid #8e0528;padding-left:12px;padding-top:15px;margin:20px 60px 10px 60px;padding-bottom:25px;}
+.zz p{height:auto;color:#031413;font:16px "微软雅黑";line-height:40px;}
+.zz label{height:100px;color:#031413;font:16px "微软雅黑";margin-right: 120px;line-height: 48px;display: inline;}
+.zz label span{margin-right: 10px}
+.zz p input{font:12px "宋体";width:80px;margin: 5px;color: #0088cc;}
+.zz p a{padding:0 0 0 10px;}
+.zz a label{background-image:url(../images/jiabtn.png);width: 18px;height: 18px;}
+.xianshi{ color: #08c;font:14px "宋体"}
+/*文字详情*/
+.xiangqing{ float: left;margin-right: 30px;width: 260px;}
+/*.wtu p span{  font: 16px "微软雅黑";color: #101010;}*/
+.pinyin{  font: 16px "微软雅黑";color: #101010;}
+/*文字图片*/
+.wtu{border:1px solid #8e0528;padding:16px;height:auto;margin:0 60px}
+.wtu ul{overflow:auto;margin:0 0 10px 0;}
+.wtu ul li{float:left;margin:0 8px 10px 0;width:160px;height:196px;border:1px solid #cbcbcb;padding-top:10px;}
+.wtu li img{display:block;margin:0 auto;max-width: 144px;max-height: 160px;}
+.wtu ul p{text-align:center;line-height:30px;overflow: hidden;white-space: nowrap;margin: 0 10px;}/*width: 144px;*/
+/*翻页按钮*/
+.fanbtn{height:30px;margin: 20px 60px 10px 60px;overflow: hidden;}
+.fanbtn p{float:left;height:26px;line-height: 26px}
+.fanbtn p span{ margin-right: 5px;}
+.fanbtn p span.current{background:#840219;color:#ffffff;}
+.fanbtn p a,.fanbtn p span{display:inline-block;width:auto;float:left;}
+.fanbtn p a:hover{color:#840219;}
+.fanbtn p.kuang a,.fanbtn p.kuang span{height:22px;width:20px;border:1px solid #8e0528;font:18px "宋体";text-align:center;line-height:22px;padding-left:0;padding-right:0;}
+.fanbtn p.kuang a:hover{background:#840219;color:#ffffff;}
+.anp span{display:block;float:left;}
+.anp a{margin-left:5px;margin-right:5px;}
+/*底部*/
+.bottom{width:100%;background:url(../images/bottom.png) repeat-x left top;position: absolute;}
+.footer p{ text-align: center;font-size: 12px;}
+.link{  padding: 60px 0 10px 10px;width: 990px;margin: 0 auto;overflow: hidden;}
+.linkCon {float: left;font-size: 12px;padding: 10px 0 10px 0;line-height: 24px;overflow: hidden;}
+.footer p a{margin: 0px 5px;font-size: 12px;color: #111;}
+.linkCon a{margin: 0px 5px;font-size: 12px;color: #840219;}
+.footer p a:hover,.linkCon a:hover{color:#840219;}
+p a{margin: 0px 5px;font-size: 14px;color: #111;}
+p a:hover{color:#840219;}
+
+/*首页搜索*/
+.bigsou{padding-top:235px;padding-bottom:240px;}
+.albig{display:none;position:fixed;top:50%;left:50%;text-align:center;z-index:100;}
+.albig #dagImg{padding:10px;border:1px solid #840219;background:#fff;}
+
+.nimei{width:100%;height:100%;background:#000;opacity:0.9;filter:alpha(opacity=50);position:fixed;top:0;left:0;display:none;}
+.guanbi{text-align:right;position:absolute;top:-15px;z-index:110;right:-10px;}
+
+/*联系我们*/
+.aboutus h2{
+  color: #000;
+  font-size: 22px;
+  font-weight: normal;
+  padding: 10px 0px 6px 58px;
+}
+.aboutus p {
+  line-height: 30px;
+  font-size: 14px;
+  text-indent: 2em;
+  padding: 0px 30px;
+}
+
+ /*懒加载*/
+img.lazy{
+	background:url(../images/loading.gif) 50% 50% no-repeat;
+    height: 160px;
+}
+
+/*广告位*/
+.banner{ text-align: center;padding-bottom: 20px;margin-bottom: 20px}
+ 
+

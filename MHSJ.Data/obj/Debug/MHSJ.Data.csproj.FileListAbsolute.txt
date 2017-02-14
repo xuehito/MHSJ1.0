@@ -1,0 +1,14 @@
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.csprojResolveAssemblyReference.cache
+F:\我的资料\Program\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Data.pdb
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Entity.dll
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Entity.pdb
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.csprojResolveAssemblyReference.cache
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.dll
+F:\我的资料\Program\MHSJ-20151124\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.pdb

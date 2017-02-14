@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MHSJModelStoreContainer" CdmEntityContainer="MHSJEntities">
+    <EntitySetMapping Name="T_Writer">
+      <EntityTypeMapping TypeName="MHSJModel.T_Writer">
+        <MappingFragment StoreEntitySet="T_Writer">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Dynasty" ColumnName="Dynasty" />
+          <ScalarProperty Name="WriterAliases" ColumnName="WriterAliases" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_From">
+      <EntityTypeMapping TypeName="MHSJModel.T_From">
+        <MappingFragment StoreEntitySet="T_From">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="FromAliases" ColumnName="FromAliases" />
+          <ScalarProperty Name="FromName" ColumnName="FromName" />
+          <ScalarProperty Name="FromId" ColumnName="FromId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Sites">
+      <EntityTypeMapping TypeName="MHSJModel.T_Sites">
+        <MappingFragment StoreEntitySet="T_Sites">
+          <ScalarProperty Name="Setting" ColumnName="Setting" />
+          <ScalarProperty Name="TagCount" ColumnName="TagCount" />
+          <ScalarProperty Name="VisitCount" ColumnName="VisitCount" />
+          <ScalarProperty Name="CommentCount" ColumnName="CommentCount" />
+          <ScalarProperty Name="PostCount" ColumnName="PostCount" />
+          <ScalarProperty Name="SiteId" ColumnName="SiteId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Word">
+      <EntityTypeMapping TypeName="MHSJModel.T_Word">
+        <MappingFragment StoreEntitySet="T_Word">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Yiti" ColumnName="Yiti" />
+          <ScalarProperty Name="Tongjia" ColumnName="Tongjia" />
+          <ScalarProperty Name="Bushou" ColumnName="Bushou" />
+          <ScalarProperty Name="Zhengma" ColumnName="Zhengma" />
+          <ScalarProperty Name="Changjei" ColumnName="Changjei" />
+          <ScalarProperty Name="Wubi" ColumnName="Wubi" />
+          <ScalarProperty Name="Pinyin" ColumnName="Pinyin" />
+          <ScalarProperty Name="TraditionalWord" ColumnName="TraditionalWord" />
+          <ScalarProperty Name="SimplifiedWord" ColumnName="SimplifiedWord" />
+          <ScalarProperty Name="WordId" ColumnName="WordId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Post">
+      <EntityTypeMapping TypeName="MHSJModel.T_Post">
+        <MappingFragment StoreEntitySet="T_Post">
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="TWord" ColumnName="TWord" />
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="WordId" ColumnName="WordId" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="FromName" ColumnName="FromName" />
+          <ScalarProperty Name="FromId" ColumnName="FromId" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="WriterId" ColumnName="WriterId" />
+          <ScalarProperty Name="WordDirection" ColumnName="WordDirection" />
+          <ScalarProperty Name="WordTypeName" ColumnName="WordTypeName" />
+          <ScalarProperty Name="WordType" ColumnName="WordType" />
+          <ScalarProperty Name="Yiti" ColumnName="Yiti" />
+          <ScalarProperty Name="Tongjia" ColumnName="Tongjia" />
+          <ScalarProperty Name="Bushou" ColumnName="Bushou" />
+          <ScalarProperty Name="Zhengma" ColumnName="Zhengma" />
+          <ScalarProperty Name="Changjei" ColumnName="Changjei" />
+          <ScalarProperty Name="Wubi" ColumnName="Wubi" />
+          <ScalarProperty Name="Pinyin" ColumnName="Pinyin" />
+          <ScalarProperty Name="TraditionalWord" ColumnName="TraditionalWord" />
+          <ScalarProperty Name="SimplifiedWord" ColumnName="SimplifiedWord" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="V_Post">
+      <EntityTypeMapping TypeName="MHSJModel.V_Post">
+        <MappingFragment StoreEntitySet="V_Post">
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="FromName" ColumnName="FromName" />
+          <ScalarProperty Name="FromId" ColumnName="FromId" />
+          <ScalarProperty Name="WriterName" ColumnName="WriterName" />
+          <ScalarProperty Name="WriterId" ColumnName="WriterId" />
+          <ScalarProperty Name="WordDirection" ColumnName="WordDirection" />
+          <ScalarProperty Name="WordTypeName" ColumnName="WordTypeName" />
+          <ScalarProperty Name="WordType" ColumnName="WordType" />
+          <ScalarProperty Name="Bushou" ColumnName="Bushou" />
+          <ScalarProperty Name="Tword" ColumnName="Tword" />
+          <ScalarProperty Name="Yiti" ColumnName="Yiti" />
+          <ScalarProperty Name="Tongjia" ColumnName="Tongjia" />
+          <ScalarProperty Name="bsWord" ColumnName="bsWord" />
+          <ScalarProperty Name="Zhengma" ColumnName="Zhengma" />
+          <ScalarProperty Name="Changjei" ColumnName="Changjei" />
+          <ScalarProperty Name="Wubi" ColumnName="Wubi" />
+          <ScalarProperty Name="Pinyin" ColumnName="Pinyin" />
+          <ScalarProperty Name="TraditionalWord" ColumnName="TraditionalWord" />
+          <ScalarProperty Name="SimplifiedWord" ColumnName="SimplifiedWord" />
+          <ScalarProperty Name="WordId" ColumnName="WordId" />
+          <ScalarProperty Name="PostId" ColumnName="PostId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

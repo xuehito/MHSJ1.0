@@ -1,0 +1,28 @@
+@charset "gb2312";
+/* CSS Document */
+/*初始化css*/
+body, ul, ol, dl,dt, dd, li, p, h1, h2, h3, h4, h5, h6, form, table, td, img, div,p { margin: 0; padding: 0; border: 0; color: #000000 }
+ul, ol { list-style-type: none; }
+select, input, img { vertical-align: middle; }
+div { font: 14px "宋体"; }
+a { text-decoration: none; color: #000000; }
+a, area { blr:expression(this.onFocus=this.blur())}
+a:hover{color:#840219;}
+:focus { outline-style: none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea { font-size:14px; margin:0; }
+input[type="text"], input[type="password"], textarea { outline-style:none; -webkit-appearance:none; }
+textarea {resize:none;}
+body{ background:#fff url(../images/bodybg.jpg) repeat left top; }
+
+.main .con h1 {
+      border-bottom: 1px solid rgb(222, 221, 221);
+  padding: 10px 0px 10px 20px;
+  font-size: 14px;
+  color: #840219;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+

@@ -1,0 +1,584 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DCC4824-7123-405B-B995-9F9C51A81A59}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MHSJ.Web</RootNamespace>
+    <AssemblyName>MHSJ.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>E:\SohuOA\21.Service\SohuOAMBFWebservice\Lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="about\contact.aspx" />
+    <Content Include="admin\wordlist.aspx" />
+    <Content Include="common\css\bootstrap-responsive.min.css" />
+    <Content Include="common\css\bootstrap.min.css" />
+    <Content Include="common\css\checkBo.min.css" />
+    <Content Include="common\css\images\ad_ctr.png" />
+    <Content Include="common\css\images\alpha.png" />
+    <Content Include="common\css\images\dot.png" />
+    <Content Include="common\css\images\dot_8.png" />
+    <Content Include="common\css\images\top_banner_bg.png" />
+    <Content Include="common\css\mobile.css" />
+    <Content Include="common\css\slider.css" />
+    <Content Include="common\css\ybz.css" />
+    <Content Include="common\css\main_bak20151120.css" />
+    <Content Include="common\images\ad_ctr.png" />
+    <Content Include="common\images\alpha.png" />
+    <Content Include="common\images\banner1.jpg" />
+    <Content Include="common\images\banner2.jpg" />
+    <Content Include="common\images\banner3.jpg" />
+    <Content Include="common\images\guanb.png" />
+    <Content Include="common\images\img\bodybg.jpg" />
+    <Content Include="common\images\img\bottom.png" />
+    <Content Include="common\images\img\jiabtn.png" />
+    <Content Include="common\images\img\jianbtn.png" />
+    <Content Include="common\images\img\li.png" />
+    <Content Include="common\images\img\logo.png" />
+    <Content Include="common\images\img\logos.png" />
+    <Content Include="common\images\img\mainbg.png" />
+    <Content Include="common\images\img\pic1.jpg" />
+    <Content Include="common\images\img\pic10.jpg" />
+    <Content Include="common\images\img\pic2.jpg" />
+    <Content Include="common\images\img\pic3.jpg" />
+    <Content Include="common\images\img\pic4.jpg" />
+    <Content Include="common\images\img\pic5.jpg" />
+    <Content Include="common\images\img\pic6.jpg" />
+    <Content Include="common\images\img\pic7.jpg" />
+    <Content Include="common\images\img\pic8.jpg" />
+    <Content Include="common\images\img\pic9.jpg" />
+    <Content Include="common\images\img\qb.png" />
+    <Content Include="common\images\img\red.png" />
+    <Content Include="common\images\img\topbg.png" />
+    <Content Include="common\images\img\yj01.png" />
+    <Content Include="common\images\img\yj02.png" />
+    <Content Include="common\images\img\yj03.jpg" />
+    <Content Include="common\images\img\yj04.jpg" />
+    <Content Include="common\images\img\zf.png" />
+    <Content Include="common\images\img\zfs.png" />
+    <Content Include="common\images\img\zz.png" />
+    <Content Include="common\images\loading.gif" />
+    <Content Include="common\images\lunbo\002.png" />
+    <Content Include="common\images\lunbo\003.png" />
+    <Content Include="common\images\lunbo\004.png" />
+    <Content Include="common\images\lunbo\005.png" />
+    <Content Include="common\images\lunbo\023.png" />
+    <Content Include="common\images\lunbo\058.png" />
+    <Content Include="common\images\lunbo\a.jpg" />
+    <Content Include="common\images\lunbo\b.jpg" />
+    <Content Include="common\images\lunbo\dot.png" />
+    <Content Include="common\images\lunbo\dot_8.png" />
+    <Content Include="common\images\qq.gif" />
+    <Content Include="common\images\guanbi.png" />
+    <Content Include="common\scripts\bootstrap.min.js" />
+    <Content Include="common\scripts\checkBo.min.js" />
+    <Content Include="common\scripts\hwInput.js" />
+    <Content Include="common\scripts\jquery.scrollstop.js" />
+    <Content Include="common\scripts\jquery.toaster.js" />
+    <Content Include="common\scripts\lanrenjiazai.js" />
+    <Content Include="common\scripts\slider.js" />
+    <Content Include="common\scripts\ybz.min.js" />
+    <Content Include="Error.aspx" />
+    <Content Include="admin\default.aspx" />
+    <Content Include="admin\fromlist.aspx" />
+    <Content Include="admin\login.aspx" />
+    <Content Include="admin\logout.aspx" />
+    <Content Include="admin\postedit.aspx" />
+    <Content Include="admin\postlist.aspx" />
+    <Content Include="admin\setting.aspx" />
+    <Content Include="admin\upfilebyeditor.aspx" />
+    <Content Include="admin\upfilelist.aspx" />
+    <Content Include="admin\usercontrols\upfilemanager.ascx" />
+    <Content Include="admin\writerlist.aspx" />
+    <Content Include="common\css\admin.css" />
+    <Content Include="common\css\base.css" />
+    <Content Include="common\css\jquery.ui.autocomplete.css" />
+    <Content Include="common\css\main.css" />
+    <Content Include="common\css\thickbox.css" />
+    <Content Include="common\editor\adapters\jquery.js" />
+    <Content Include="common\editor\ckeditor.js" />
+    <Content Include="common\editor\ckeditor_basic.js" />
+    <Content Include="common\editor\config.js" />
+    <Content Include="common\editor\contents.css" />
+    <Content Include="common\editor\images\spacer.gif" />
+    <Content Include="common\editor\lang\en.js" />
+    <Content Include="common\editor\lang\zh-cn.js" />
+    <Content Include="common\editor\lang\zh.js" />
+    <Content Include="common\editor\lang\_languages.js" />
+    <Content Include="common\editor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="common\editor\plugins\a11yhelp\lang\en.js" />
+    <Content Include="common\editor\plugins\about\dialogs\about.js" />
+    <Content Include="common\editor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="common\editor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="common\editor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="common\editor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="common\editor\plugins\div\dialogs\div.js" />
+    <Content Include="common\editor\plugins\find\dialogs\find.js" />
+    <Content Include="common\editor\plugins\flash\dialogs\flash.js" />
+    <Content Include="common\editor\plugins\flash\images\placeholder.png" />
+    <Content Include="common\editor\plugins\forms\dialogs\button.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\form.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\radio.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\select.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="common\editor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="common\editor\plugins\iframedialog\plugin.js" />
+    <Content Include="common\editor\plugins\image\dialogs\image.js" />
+    <Content Include="common\editor\plugins\link\dialogs\anchor.js" />
+    <Content Include="common\editor\plugins\link\dialogs\link.js" />
+    <Content Include="common\editor\plugins\link\images\anchor.gif" />
+    <Content Include="common\editor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="common\editor\plugins\pastefromword\filter\default.js" />
+    <Content Include="common\editor\plugins\pastetext\dialogs\pastetext.js" />
+    <Content Include="common\editor\plugins\scayt\dialogs\options.js" />
+    <Content Include="common\editor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="common\editor\plugins\showblocks\images\block_address.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_div.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_p.png" />
+    <Content Include="common\editor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="common\editor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="common\editor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="common\editor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\envelope.gif" />
+    <Content Include="common\editor\plugins\smiley\images\heart.gif" />
+    <Content Include="common\editor\plugins\smiley\images\kiss.gif" />
+    <Content Include="common\editor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="common\editor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="common\editor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="common\editor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="common\editor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="common\editor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="common\editor\plugins\stylescombo\styles\default.js" />
+    <Content Include="common\editor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="common\editor\plugins\table\dialogs\table.js" />
+    <Content Include="common\editor\plugins\templates\dialogs\templates.js" />
+    <Content Include="common\editor\plugins\templates\templates\default.js" />
+    <Content Include="common\editor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="common\editor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="common\editor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="common\editor\plugins\uicolor\dialogs\uicolor.js" />
+    <Content Include="common\editor\plugins\uicolor\lang\en.js" />
+    <Content Include="common\editor\plugins\uicolor\plugin.js" />
+    <Content Include="common\editor\plugins\uicolor\uicolor.gif" />
+    <Content Include="common\editor\plugins\uicolor\yui\assets\hue_bg.png" />
+    <Content Include="common\editor\plugins\uicolor\yui\assets\hue_thumb.png" />
+    <Content Include="common\editor\plugins\uicolor\yui\assets\picker_mask.png" />
+    <Content Include="common\editor\plugins\uicolor\yui\assets\picker_thumb.png" />
+    <Content Include="common\editor\plugins\uicolor\yui\assets\yui.css" />
+    <Content Include="common\editor\plugins\uicolor\yui\yui.js" />
+    <Content Include="common\editor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="common\editor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="common\editor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="common\editor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="common\editor\skins\kama\dialog.css" />
+    <Content Include="common\editor\skins\kama\editor.css" />
+    <Content Include="common\editor\skins\kama\icons.png" />
+    <Content Include="common\editor\skins\kama\images\dialog_sides.gif" />
+    <Content Include="common\editor\skins\kama\images\dialog_sides.png" />
+    <Content Include="common\editor\skins\kama\images\dialog_sides_rtl.png" />
+    <Content Include="common\editor\skins\kama\images\mini.gif" />
+    <Content Include="common\editor\skins\kama\images\noimage.png" />
+    <Content Include="common\editor\skins\kama\images\sprites.png" />
+    <Content Include="common\editor\skins\kama\images\sprites_ie6.png" />
+    <Content Include="common\editor\skins\kama\images\toolbar_start.gif" />
+    <Content Include="common\editor\skins\kama\skin.js" />
+    <Content Include="common\editor\skins\kama\templates.css" />
+    <Content Include="common\editor\themes\default\theme.js" />
+    <Content Include="common\images\admin\bg.png" />
+    <Content Include="common\images\admin\bglogo.gif" />
+    <Content Include="common\images\admin\loadingAnimation.gif" />
+    <Content Include="common\images\admin\no.gif" />
+    <Content Include="common\images\admin\notice.gif" />
+    <Content Include="common\images\admin\yes.gif" />
+    <Content Include="common\images\bodybg.jpg" />
+    <Content Include="common\images\bottom.png" />
+    <Content Include="common\images\file\chm.gif" />
+    <Content Include="common\images\file\default.gif" />
+    <Content Include="common\images\file\doc.gif" />
+    <Content Include="common\images\file\folder.png" />
+    <Content Include="common\images\file\jpg.gif" />
+    <Content Include="common\images\file\pdf.gif" />
+    <Content Include="common\images\file\ppt.gif" />
+    <Content Include="common\images\file\psd.gif" />
+    <Content Include="common\images\file\rar.gif" />
+    <Content Include="common\images\file\swf.gif" />
+    <Content Include="common\images\file\txt.gif" />
+    <Content Include="common\images\file\wma.gif" />
+    <Content Include="common\images\file\xls.gif" />
+    <Content Include="common\images\li.png" />
+    <Content Include="common\images\logo.gif" />
+    <Content Include="common\images\logo.png" />
+    <Content Include="common\images\mainbg.png" />
+    <Content Include="common\images\qb.png" />
+    <Content Include="common\images\red.png" />
+    <Content Include="common\images\topbg.png" />
+    <Content Include="common\images\watermark\watermark.gif" />
+    <Content Include="common\images\wlw\icon.png" />
+    <Content Include="common\images\jiabtn.png" />
+    <Content Include="common\images\jianbtn.png" />
+    <Content Include="common\images\wlw\sitepreview.png" />
+    <Content Include="common\images\wlw\watermark.png" />
+    <Content Include="common\images\yj01.png" />
+    <Content Include="common\images\yj02.png" />
+    <Content Include="common\images\yj03.jpg" />
+    <Content Include="common\images\yj04.jpg" />
+    <Content Include="common\images\zf.png" />
+    <Content Include="common\images\zz.png" />
+    <Content Include="common\scripts\common.js" />
+    <Content Include="common\scripts\jquery-1.7.2.min.js" />
+    <Content Include="common\scripts\jquery-ui-1.8.20.custom.js" />
+    <Content Include="common\scripts\jquery.js" />
+    <Content Include="common\scripts\jquery.tagto.js" />
+    <Content Include="common\scripts\main.js" />
+    <Content Include="common\scripts\thickbox.js" />
+    <Content Include="common\tools\verifyimage.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="index.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="lunbo.aspx" />
+    <Content Include="MobileIndex.aspx" />
+    <Content Include="result.html" />
+    <Content Include="shouji.aspx" />
+    <Content Include="shouxie.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="weixintest.aspx" />
+    <Content Include="index_20151120.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="about\contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about\contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\wordlist.aspx.cs">
+      <DependentUpon>wordlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\wordlist.aspx.designer.cs">
+      <DependentUpon>wordlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CodeCommon\ChineseStringConverter.ashx.cs">
+      <DependentUpon>ChineseStringConverter.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="CodeCommon\QueryWord.ashx.cs">
+      <DependentUpon>QueryWord.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\fromlist.aspx.cs">
+      <DependentUpon>fromlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\fromlist.aspx.designer.cs">
+      <DependentUpon>fromlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\postedit.aspx.cs">
+      <DependentUpon>postedit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\postedit.aspx.designer.cs">
+      <DependentUpon>postedit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\postlist.aspx.cs">
+      <DependentUpon>postlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\postlist.aspx.designer.cs">
+      <DependentUpon>postlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\setting.aspx.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\setting.aspx.designer.cs">
+      <DependentUpon>setting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\upfilebyeditor.aspx.cs">
+      <DependentUpon>upfilebyeditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\upfilebyeditor.aspx.designer.cs">
+      <DependentUpon>upfilebyeditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\upfilelist.aspx.cs">
+      <DependentUpon>upfilelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\upfilelist.aspx.designer.cs">
+      <DependentUpon>upfilelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\usercontrols\upfilemanager.ascx.cs">
+      <DependentUpon>upfilemanager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\usercontrols\upfilemanager.ascx.designer.cs">
+      <DependentUpon>upfilemanager.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\writerlist.aspx.cs">
+      <DependentUpon>writerlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\writerlist.aspx.designer.cs">
+      <DependentUpon>writerlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\AdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.Master.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\admin.Master.designer.cs">
+      <DependentUpon>admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\default.aspx.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\default.aspx.designer.cs">
+      <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CodeCommon\QueryFrom.ashx.cs">
+      <DependentUpon>QueryFrom.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="common\tools\verifyimage.aspx.cs">
+      <DependentUpon>verifyimage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lunbo.aspx.cs">
+      <DependentUpon>lunbo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lunbo.aspx.designer.cs">
+      <DependentUpon>lunbo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MobileIndex.aspx.cs">
+      <DependentUpon>MobileIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MobileIndex.aspx.designer.cs">
+      <DependentUpon>MobileIndex.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pager.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PageUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CodeCommon\QueryWriter.ashx.cs">
+      <DependentUpon>QueryWriter.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="shouji.aspx.cs">
+      <DependentUpon>shouji.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shouji.aspx.designer.cs">
+      <DependentUpon>shouji.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shouxie.aspx.cs">
+      <DependentUpon>shouxie.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shouxie.aspx.designer.cs">
+      <DependentUpon>shouxie.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weixintest.aspx.cs">
+      <DependentUpon>weixintest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weixintest.aspx.designer.cs">
+      <DependentUpon>weixintest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index_20151120.aspx.cs">
+      <DependentUpon>index_20151120.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index_20151120.aspx.designer.cs">
+      <DependentUpon>index_20151120.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="upfiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\admin.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MHSJ.Core\MHSJ.Core.csproj">
+      <Project>{F30237E9-C4F2-4CBD-B01C-FC271FD92CA6}</Project>
+      <Name>MHSJ.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHSJ.Data\MHSJ.Data.csproj">
+      <Project>{41969443-8D61-437B-825B-EC59A1310C38}</Project>
+      <Name>MHSJ.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHSJ.Entity\MHSJ.Entity.csproj">
+      <Project>{D764E2E3-62BB-4D8D-99DC-CB01265935AE}</Project>
+      <Name>MHSJ.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeCommon\QueryWriter.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeCommon\QueryFrom.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="common\config\feed.config" />
+    <Content Include="common\config\rewrite.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CodeCommon\ChineseStringConverter.ashx" />
+    <Content Include="CodeCommon\QueryWord.ashx" />
+    <None Include="common\css\images\Thumbs.db" />
+    <None Include="Properties\PublishProfiles\配置文件1.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>8636</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

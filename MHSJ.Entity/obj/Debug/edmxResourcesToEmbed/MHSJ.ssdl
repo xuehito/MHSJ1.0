@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MHSJModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="MHSJModelStoreContainer">
+    <EntitySet Name="T_From" EntityType="MHSJModel.Store.T_From" store:Type="Tables" store:Schema="dbo" store:Name="T_From">
+      <DefiningQuery>SELECT 
+      [T_From].[FromId] AS [FromId], 
+      [T_From].[FromName] AS [FromName], 
+      [T_From].[FromAliases] AS [FromAliases], 
+      [T_From].[Description] AS [Description], 
+      [T_From].[DisplayOrder] AS [DisplayOrder], 
+      [T_From].[CreateDate] AS [CreateDate], 
+      [T_From].[UpdateDate] AS [UpdateDate]
+      FROM [dbo].[T_From] AS [T_From]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_Post" EntityType="MHSJModel.Store.T_Post" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Sites" EntityType="MHSJModel.Store.T_Sites" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Word" EntityType="MHSJModel.Store.T_Word" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Writer" EntityType="MHSJModel.Store.T_Writer" store:Type="Tables" store:Schema="dbo" store:Name="T_Writer">
+      <DefiningQuery>SELECT 
+      [T_Writer].[Id] AS [Id], 
+      [T_Writer].[WriterName] AS [WriterName], 
+      [T_Writer].[WriterAliases] AS [WriterAliases], 
+      [T_Writer].[Dynasty] AS [Dynasty], 
+      [T_Writer].[Description] AS [Description], 
+      [T_Writer].[DisplayOrder] AS [DisplayOrder], 
+      [T_Writer].[Status] AS [Status], 
+      [T_Writer].[CreateDate] AS [CreateDate], 
+      [T_Writer].[UpdateDate] AS [UpdateDate]
+      FROM [dbo].[T_Writer] AS [T_Writer]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="V_Post" EntityType="MHSJModel.Store.V_Post" store:Type="Views" store:Schema="dbo" store:Name="V_Post">
+      <DefiningQuery>SELECT 
+      [V_Post].[PostId] AS [PostId], 
+      [V_Post].[WordId] AS [WordId], 
+      [V_Post].[SimplifiedWord] AS [SimplifiedWord], 
+      [V_Post].[TraditionalWord] AS [TraditionalWord], 
+      [V_Post].[Pinyin] AS [Pinyin], 
+      [V_Post].[Wubi] AS [Wubi], 
+      [V_Post].[Changjei] AS [Changjei], 
+      [V_Post].[Zhengma] AS [Zhengma], 
+      [V_Post].[bsWord] AS [bsWord], 
+      [V_Post].[Tongjia] AS [Tongjia], 
+      [V_Post].[Yiti] AS [Yiti], 
+      [V_Post].[Tword] AS [Tword], 
+      [V_Post].[Bushou] AS [Bushou], 
+      [V_Post].[WordType] AS [WordType], 
+      [V_Post].[WordTypeName] AS [WordTypeName], 
+      [V_Post].[WordDirection] AS [WordDirection], 
+      [V_Post].[WriterId] AS [WriterId], 
+      [V_Post].[WriterName] AS [WriterName], 
+      [V_Post].[FromId] AS [FromId], 
+      [V_Post].[FromName] AS [FromName], 
+      [V_Post].[ImageUrl] AS [ImageUrl], 
+      [V_Post].[CreateDate] AS [CreateDate], 
+      [V_Post].[UpdateDate] AS [UpdateDate], 
+      [V_Post].[State] AS [State]
+      FROM [dbo].[V_Post] AS [V_Post]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“MHSJ.dbo.T_From”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="T_From">
+    <Key>
+      <PropertyRef Name="FromId" />
+    </Key>
+    <Property Name="FromId" Type="int" Nullable="false" />
+    <Property Name="FromName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromAliases" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_Post">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SimplifiedWord" Type="nvarchar" MaxLength="24" />
+    <Property Name="TraditionalWord" Type="nvarchar" MaxLength="24" />
+    <Property Name="Pinyin" Type="nvarchar" MaxLength="24" />
+    <Property Name="Wubi" Type="nvarchar" MaxLength="24" />
+    <Property Name="Changjei" Type="nvarchar" MaxLength="24" />
+    <Property Name="Zhengma" Type="nvarchar" MaxLength="24" />
+    <Property Name="Bushou" Type="nvarchar" MaxLength="10" />
+    <Property Name="Tongjia" Type="nvarchar" MaxLength="24" />
+    <Property Name="Yiti" Type="nvarchar" MaxLength="24" />
+    <Property Name="WordType" Type="nvarchar" MaxLength="24" />
+    <Property Name="WordTypeName" Type="nchar" MaxLength="24" />
+    <Property Name="WordDirection" Type="nvarchar" MaxLength="24" />
+    <Property Name="WriterId" Type="int" />
+    <Property Name="WriterName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromId" Type="int" />
+    <Property Name="FromName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="WordId" Type="int" />
+    <Property Name="Word" Type="nvarchar" MaxLength="50" />
+    <Property Name="TWord" Type="nvarchar" MaxLength="50" />
+    <Property Name="State" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_Sites">
+    <Key>
+      <PropertyRef Name="SiteId" />
+    </Key>
+    <Property Name="SiteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PostCount" Type="int" />
+    <Property Name="CommentCount" Type="int" />
+    <Property Name="VisitCount" Type="int" />
+    <Property Name="TagCount" Type="int" />
+    <Property Name="Setting" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="T_Word">
+    <Key>
+      <PropertyRef Name="WordId" />
+    </Key>
+    <Property Name="WordId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SimplifiedWord" Type="nvarchar" MaxLength="24" />
+    <Property Name="TraditionalWord" Type="nvarchar" MaxLength="24" />
+    <Property Name="Pinyin" Type="nvarchar" MaxLength="24" />
+    <Property Name="Wubi" Type="nvarchar" MaxLength="24" />
+    <Property Name="Changjei" Type="nvarchar" MaxLength="24" />
+    <Property Name="Zhengma" Type="nvarchar" MaxLength="24" />
+    <Property Name="Bushou" Type="nvarchar" MaxLength="10" />
+    <Property Name="Tongjia" Type="nvarchar" MaxLength="24" />
+    <Property Name="Yiti" Type="nvarchar" MaxLength="24" />
+    <Property Name="State" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“MHSJ.dbo.T_Writer”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="T_Writer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="WriterName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="WriterAliases" Type="nvarchar" MaxLength="50" />
+    <Property Name="Dynasty" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+  </EntityType>
+  <!--生成过程中发现错误:
+      警告 6002: 表/视图“MHSJ.dbo.V_Post”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+  <EntityType Name="V_Post">
+    <Key>
+      <PropertyRef Name="PostId" />
+    </Key>
+    <Property Name="PostId" Type="int" Nullable="false" />
+    <Property Name="WordId" Type="int" />
+    <Property Name="SimplifiedWord" Type="nvarchar" MaxLength="24" />
+    <Property Name="TraditionalWord" Type="nvarchar" MaxLength="24" />
+    <Property Name="Pinyin" Type="nvarchar" MaxLength="24" />
+    <Property Name="Wubi" Type="nvarchar" MaxLength="24" />
+    <Property Name="Changjei" Type="nvarchar" MaxLength="24" />
+    <Property Name="Zhengma" Type="nvarchar" MaxLength="24" />
+    <Property Name="bsWord" Type="nvarchar" MaxLength="10" />
+    <Property Name="Tongjia" Type="nvarchar" MaxLength="24" />
+    <Property Name="Yiti" Type="nvarchar" MaxLength="24" />
+    <Property Name="Tword" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bushou" Type="nvarchar" MaxLength="10" />
+    <Property Name="WordType" Type="nvarchar" MaxLength="24" />
+    <Property Name="WordTypeName" Type="nchar" MaxLength="24" />
+    <Property Name="WordDirection" Type="nvarchar" MaxLength="24" />
+    <Property Name="WriterId" Type="int" />
+    <Property Name="WriterName" Type="nvarchar" MaxLength="50" />
+    <Property Name="FromId" Type="int" />
+    <Property Name="FromName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" />
+    <Property Name="UpdateDate" Type="datetime" />
+    <Property Name="State" Type="int" />
+  </EntityType>
+</Schema>
