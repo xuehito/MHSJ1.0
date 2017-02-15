@@ -24,29 +24,30 @@ namespace MHSJ.Web.Controllers
             {
                 return RedirectToAction("Login", "Account", new RouteValueDictionary { { "returnUrl",  Request.Url.AbsolutePath } });
             }
-            var info = new T_Collection();
-            info.AccountId = PageUtils.CurrentAccountId;
-            int recordCount;
+            //var info = new T_Collection();
+            //info.AccountId = PageUtils.CurrentAccountId;
+            //int recordCount;
 
-            var list = Biz_CollectionManager.biz_collection.QueryCollectionPost(info, 20, 1, out recordCount);
-            if (list == null) return View();
+            //var list = Biz_CollectionManager.biz_collection.QueryCollectionPost(info, 20, 1, out recordCount);
+            //if (list == null) return View();
             
-            var listModel = new List<V_Post>();
-            foreach (var li in list)
-            {
-                var model = new V_Post();
-                model.ImageUrl = ViewBag.SiteUrl + li.ImageUrl;
-                model.FromName = li.FromName;
-                model.WriterName = li.WriterName;
-                model.PostId = li.PostId;
-                //model.Tword = string.IsNullOrEmpty(li.Tword) ? li.SimplifiedWord : li.Tword;
-                model.Tword = li.Tword;
-                model.Browses = li.Browses;
-                model.UpdateDate = li.clUpdateDate;
+            //var listModel = new List<V_Post>();
+            //foreach (var li in list)
+            //{
+            //    var model = new V_Post();
+            //    model.ImageUrl = ViewBag.SiteUrl + li.ImageUrl;
+            //    model.FromName = li.FromName;
+            //    model.WriterName = li.WriterName;
+            //    model.PostId = li.PostId;
+            //    //model.Tword = string.IsNullOrEmpty(li.Tword) ? li.SimplifiedWord : li.Tword;
+            //    model.Tword = li.Tword;
+            //    model.Browses = li.Browses;
+            //    model.UpdateDate = li.clUpdateDate;
 
-                listModel.Add(model);
-            }
-            return View(listModel);
+            //    listModel.Add(model);
+            //}
+            //return View(listModel);
+            return View();
         }
 
         /// <summary>
@@ -112,15 +113,15 @@ namespace MHSJ.Web.Controllers
                     accountInfo.AccountId = model.AccountId;
                     accountInfo.UpdateDate = DateTime.Now;
 
-                    if (Biz_AccountManager.biz_account.ExistsAccountId(accountInfo.AccountId))
-                    {
+                    //if (Biz_AccountManager.biz_account.ExistsAccountId(accountInfo.AccountId))
+                    //{
                         Biz_AccountManager.biz_account.UpdateAccount(accountInfo);
                         return PromptView("/", "修改成功！");
-                    }
+                    //}
 
-                    ViewBag.ErrorMessage = "修改失败，帐号或不存在!";
+                    //ViewBag.ErrorMessage = "修改失败，帐号或不存在!";
 
-                    return View("Index",model);
+                    //return View("Index",model);
 
                 }
                 catch (MembershipCreateUserException e)

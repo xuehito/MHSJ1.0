@@ -16,28 +16,27 @@
 
     $(function() {
         $("#rotateX").click(function () {
-            setTimeout(function() {
-                $("#rotateY").css("background", "#FFF");
-                $("#rotateX").css("background", "#ccc");
-                if ($("#rotateX").attr("rota") == "2") {
-                    rotateYDIV();
-                    $("#rotateX").attr("rota", "1");
-                    $("#rotateY").attr("rota", "2");
-                }
-            }, 1000);
-
+            $("#rotateY").css("background", "#FFF");
+            $("#rotateX").css("background", "#ccc");
+            if ($("#rotateX").attr("rota") == "2") {
+                rotateYDIV();
+                $("#rotateX").attr("rota", "1");
+                setTimeout(function() {
+                $("#rotateY").attr("rota", "2");
+                }, 1000);
+            }
         });
         $("#rotateY").click(function () {
-            setTimeout(function() {
-                $("#rotateX").css("background", "#FFF");
-                $("#rotateY").css("background", "#ccc");
+            $("#rotateX").css("background", "#FFF");
+            $("#rotateY").css("background", "#ccc");
 
-                if ($("#rotateY").attr("rota") == "2") {
-                    rotateYDIV();
-                    $("#rotateY").attr("rota", "1");
+            if ($("#rotateY").attr("rota") == "2") {
+                rotateYDIV();
+                $("#rotateY").attr("rota", "1");
+                setTimeout(function() {
                     $("#rotateX").attr("rota", "2");
-                }
-            }, 1000);
+                }, 1000);
+            }
         });
     });
 

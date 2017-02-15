@@ -8,10 +8,29 @@
         <EntityContainer Name="MHSJModelStoreContainer">
           <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.Store.T_AccountInfo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_From" EntityType="MHSJModel.Store.T_From" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T_Links" EntityType="MHSJModel.Store.T_Links" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Post" EntityType="MHSJModel.Store.T_Post" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Sites" EntityType="MHSJModel.Store.T_Sites" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Word" EntityType="MHSJModel.Store.T_Word" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T_Writer" EntityType="MHSJModel.Store.T_Writer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="V_Account" EntityType="MHSJModel.Store.V_Account" store:Type="Views" store:Schema="dbo" store:Name="V_Account">
+            <DefiningQuery>SELECT 
+      [V_Account].[AccountId] AS [AccountId], 
+      [V_Account].[AccountName] AS [AccountName], 
+      [V_Account].[Name] AS [Name], 
+      [V_Account].[Password] AS [Password], 
+      [V_Account].[Email] AS [Email], 
+      [V_Account].[Phone] AS [Phone], 
+      [V_Account].[Status] AS [Status], 
+      [V_Account].[Type] AS [Type], 
+      [V_Account].[CreateDate] AS [CreateDate], 
+      [V_Account].[UpdateDate] AS [UpdateDate], 
+      [V_Account].[Id] AS [Id], 
+      [V_Account].[Integral] AS [Integral], 
+      [V_Account].[Expr1] AS [Expr1], 
+      [V_Account].[CollectionnNumber] AS [CollectionnNumber]
+      FROM [dbo].[V_Account] AS [V_Account]</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="V_Post" EntityType="MHSJModel.Store.V_Post" store:Type="Views" store:Schema="dbo" store:Name="V_Post">
             <DefiningQuery>SELECT 
       [V_Post].[PostId] AS [PostId], 
@@ -70,6 +89,19 @@
           <Property Name="FromAliases" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
           <Property Name="DisplayOrder" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="T_Links">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Url" Type="nvarchar" MaxLength="100" />
+          <Property Name="Type" Type="int" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisplayOrder" Type="int" />
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
@@ -147,6 +179,29 @@
           <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
+      警告 6002: 表/视图“MHSJ.dbo.V_Account”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
+      -->
+        <EntityType Name="V_Account">
+          <Key>
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="AccountId" Type="int" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="24" />
+          <Property Name="Name" Type="nvarchar" MaxLength="24" />
+          <Property Name="Password" Type="nvarchar" MaxLength="24" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Type" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Integral" Type="int" />
+          <Property Name="Expr1" Type="int" />
+          <Property Name="CollectionnNumber" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
       警告 6002: 表/视图“MHSJ.dbo.V_Post”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
       -->
         <EntityType Name="V_Post">
@@ -195,6 +250,8 @@
           <EntitySet Name="T_Post" EntityType="MHSJModel.T_Post" />
           <EntitySet Name="V_Post" EntityType="MHSJModel.V_Post" />
           <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.T_AccountInfo" />
+          <EntitySet Name="T_Links" EntityType="MHSJModel.T_Links" />
+          <EntitySet Name="V_Account" EntityType="MHSJModel.V_Account" />
           </EntityContainer>
         <EntityType Name="T_Writer">
           <Key>
@@ -329,6 +386,39 @@
           <Property Type="Int32" Name="Type" />
           <Property Type="DateTime" Name="CreateDate" Precision="3" />
           <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Links">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Type" />
+          <Property Type="String" Name="TypeName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DisplayOrder" />
+          <Property Type="DateTime" Name="CreateDate" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+        </EntityType>
+        <EntityType Name="V_Account">
+          <Key>
+            <PropertyRef Name="AccountId" />
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="AccountId" Nullable="false" />
+          <Property Type="String" Name="AccountName" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Name" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Phone" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Status" />
+          <Property Type="Int32" Name="Type" />
+          <Property Type="DateTime" Name="CreateDate" Precision="3" />
+          <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="Integral" />
+          <Property Type="Int32" Name="Expr1" />
+          <Property Type="Int32" Name="CollectionnNumber" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -477,6 +567,40 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_Links">
+            <EntityTypeMapping TypeName="MHSJModel.T_Links">
+              <MappingFragment StoreEntitySet="T_Links">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Url" ColumnName="Url" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="V_Account">
+            <EntityTypeMapping TypeName="MHSJModel.V_Account">
+              <MappingFragment StoreEntitySet="V_Account">
+                <ScalarProperty Name="CollectionnNumber" ColumnName="CollectionnNumber" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Integral" ColumnName="Integral" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -505,6 +629,8 @@
         <EntityTypeShape EntityType="MHSJModel.T_Post" Width="1.5" PointX="5.375" PointY="0.75" Height="5.59940673828125" />
         <EntityTypeShape EntityType="MHSJModel.V_Post" Width="1.5" PointX="7.375" PointY="0.75" Height="5.59940673828125" />
         <EntityTypeShape EntityType="MHSJModel.T_AccountInfo" Width="1.5" PointX="9.170918085226285" PointY="6.453898075248067" />
+        <EntityTypeShape EntityType="MHSJModel.T_Links" Width="1.5" PointX="11.506094611951195" PointY="0.17249606557772312" />
+        <EntityTypeShape EntityType="MHSJModel.V_Account" Width="1.5" PointX="5.1404639059400488" PointY="30.254531442306252" />
         </Diagram>
     </Diagrams>
   </Designer>

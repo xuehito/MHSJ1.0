@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Dac_Account.cs" />
     <Compile Include="Admin\Dac_Post.cs" />
     <Compile Include="Admin\Dac_Word.cs" />
     <Compile Include="Admin\Post.cs" />
@@ -49,6 +50,7 @@
     <Compile Include="Common\Dac_Common.cs" />
     <Compile Include="Common\Dac_EntityHelper.cs" />
     <Compile Include="Common\DbHelperSQL.cs" />
+    <Compile Include="MyCenter\Dac_CollectionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting.cs" />
     <Compile Include="Admin\User.cs" />

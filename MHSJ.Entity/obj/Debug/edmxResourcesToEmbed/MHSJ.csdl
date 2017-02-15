@@ -8,6 +8,8 @@
     <EntitySet Name="T_Post" EntityType="MHSJModel.T_Post" />
     <EntitySet Name="V_Post" EntityType="MHSJModel.V_Post" />
     <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.T_AccountInfo" />
+    <EntitySet Name="T_Links" EntityType="MHSJModel.T_Links" />
+    <EntitySet Name="V_Account" EntityType="MHSJModel.V_Account" />
   </EntityContainer>
   <EntityType Name="T_Writer">
     <Key>
@@ -142,5 +144,38 @@
     <Property Type="Int32" Name="Type" />
     <Property Type="DateTime" Name="CreateDate" Precision="3" />
     <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Links">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Url" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Type" />
+    <Property Type="String" Name="TypeName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="DisplayOrder" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+  </EntityType>
+  <EntityType Name="V_Account">
+    <Key>
+      <PropertyRef Name="AccountId" />
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="AccountId" Nullable="false" />
+    <Property Type="String" Name="AccountName" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Phone" MaxLength="24" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Status" />
+    <Property Type="Int32" Name="Type" />
+    <Property Type="DateTime" Name="CreateDate" Precision="3" />
+    <Property Type="DateTime" Name="UpdateDate" Precision="3" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="Integral" />
+    <Property Type="Int32" Name="Expr1" />
+    <Property Type="Int32" Name="CollectionnNumber" />
   </EntityType>
 </Schema>
