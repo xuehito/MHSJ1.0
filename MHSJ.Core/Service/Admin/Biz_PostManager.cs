@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MHSJ.Core.Common;
 using MHSJ.Data.Admin;
 using MHSJ.Entity;
 
@@ -56,7 +57,9 @@ namespace MHSJ.Core.Service.Admin
         /// <returns></returns>
         public bool InsertPost(T_Post info)
         {
-            return Dac_Post.dac_post.InsertPost(info);
+            bool flag = Dac_Post.dac_post.InsertPost(info);
+            CacheHelper.Clear();
+            return flag;
         }
 
         /// <summary>
@@ -66,7 +69,9 @@ namespace MHSJ.Core.Service.Admin
         /// <returns></returns>
         public bool UpdatePost(T_Post info)
         {
-            return Dac_Post.dac_post.UpdatePost(info);
+            bool flag = Dac_Post.dac_post.UpdatePost(info);
+            CacheHelper.Clear();
+            return flag;
         }
 
         /// <summary>
@@ -97,6 +102,16 @@ namespace MHSJ.Core.Service.Admin
         public T_Post GetSinglePost(T_Post info)
         {
             return Dac_Post.dac_post.GetSinglePost(info);
+        }
+
+        /// <summary>
+        /// 更新浏览次数
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        public int UpdateBrowses(T_Post info)
+        {
+            return Dac_Post.dac_post.UpdateBrowses(info);
         }
     }
 }

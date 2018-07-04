@@ -26,7 +26,7 @@
 <script src="common/scripts/ybz.min.js" type="text/javascript"></script>
 <%--<script src="http://www.yibizi.com/ybz_core/core/ybz.min.js"></script>--%>
 <link href="common/css/ybz.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="http://z.cnzz.net/o.php?sid=1256417827"></script>
+<%--<script type="text/javascript" src="http://z.cnzz.net/o.php?sid=1256417827"></script>--%>
 <style type="text/css">
     .ui-menu .ui-menu-item a.ui-state-hover,
     .ui-menu .ui-menu-item a.ui-state-active {
@@ -248,6 +248,12 @@
 
     
     </form>
+
+    <div style="margin: 10px 30px;">
+        <a href="#"><img src="common/images/tg/170508.png" /></a>
+    </div>
+    
+
     <!--翻页-->
     <%= Pager%>
 
@@ -533,7 +539,7 @@
 
 
 <script type="text/javascript">  
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"书法设计网站-梅花书检","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"right","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"梅花书检-书法字典","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"0","bdPos":"right","bdTop":"250"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 </html>
 

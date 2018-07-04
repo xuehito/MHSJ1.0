@@ -42,11 +42,11 @@ namespace MHSJ.Web.Controllers
                 ViewBag.IsCollection = 1;
             }
 
-            //var da=Biz_PostManager.biz_post.UpdateBrowses(new T_Post {PostId = id, Browses = postInfo.Browses + 1});
-            //if (da != 0)
-            //{
-            //    model.Browses = model.Browses + 1;
-            //}
+            var da = Biz_PostManager.biz_post.UpdateBrowses(new T_Post { PostId = id, Browses = postInfo.Browses + 1 });
+            if (da != 0)
+            {
+                model.Browses = model.Browses + 1;
+            }
 
             return View(model);
         }
