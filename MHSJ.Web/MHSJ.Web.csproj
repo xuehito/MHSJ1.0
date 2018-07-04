@@ -24,6 +24,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -156,6 +158,7 @@
     <Content Include="common\images\img\zf.png" />
     <Content Include="common\images\img\zfs.png" />
     <Content Include="common\images\img\zz.png" />
+    <Content Include="common\images\jd_collection.png" />
     <Content Include="common\images\loading.gif" />
     <Content Include="common\images\lunbo\002.png" />
     <Content Include="common\images\lunbo\003.png" />
@@ -169,6 +172,7 @@
     <Content Include="common\images\lunbo\dot_8.png" />
     <Content Include="common\images\qq.gif" />
     <Content Include="common\images\guanbi.png" />
+    <Content Include="common\images\tg\170508.png" />
     <Content Include="common\scripts\bootstrap.min.js" />
     <Content Include="common\scripts\checkBo.min.js" />
     <Content Include="common\scripts\hwInput.js" />

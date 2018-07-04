@@ -490,5 +490,25 @@ namespace MHSJ.Data.Admin
                 return null;
             }
         }
+
+        /// <summary>
+        /// 更新浏览次数
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        public int UpdateBrowses(T_Post info)
+        {
+            try
+            {
+                string sQLString = "update [T_Post] set [Browses]=@Browses where PostId=@PostId";
+                SqlParameter[] cmdParms = new SqlParameter[] { new SqlParameter("@Browses", info.Browses), new SqlParameter("@PostId", info.PostId) };
+                return DbHelperSQL.ExecuteSql(sQLString, cmdParms);
+            }
+            catch (Exception exception)
+            {
+                LogHelper.Error(exception);
+                return 0;
+            }
+        }
     }
 }
