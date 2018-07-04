@@ -252,6 +252,28 @@ namespace MHSJ.Core.Common
             return Regex.Replace(Content, regexstr, string.Empty, RegexOptions.IgnoreCase).Trim();
         }
 
+        public static string[] SplitString(string sourceStr)
+        {
+            return SplitString(sourceStr, ",");
+        }
+
+        public static string[] SplitString(string sourceStr, string splitStr)
+        {
+            if (string.IsNullOrEmpty(sourceStr) || string.IsNullOrEmpty(splitStr))
+            {
+                return new string[0];
+            }
+            if (sourceStr.IndexOf(splitStr) == -1)
+            {
+                return new string[] { sourceStr };
+            }
+            if (splitStr.Length == 1)
+            {
+                return sourceStr.Split(new char[] { splitStr[0] });
+            }
+            return Regex.Split(sourceStr, Regex.Escape(splitStr), RegexOptions.IgnoreCase);
+        }
+
         /// <summary>
         ///     判断字符串是否合法的日期格式
         /// </summary>

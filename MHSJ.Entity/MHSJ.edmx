@@ -4,72 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MHSJModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="MHSJModelStoreContainer">
-          <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.Store.T_AccountInfo" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_From" EntityType="MHSJModel.Store.T_From" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_Links" EntityType="MHSJModel.Store.T_Links" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_Post" EntityType="MHSJModel.Store.T_Post" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_Sites" EntityType="MHSJModel.Store.T_Sites" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_Word" EntityType="MHSJModel.Store.T_Word" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="T_Writer" EntityType="MHSJModel.Store.T_Writer" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="V_Account" EntityType="MHSJModel.Store.V_Account" store:Type="Views" store:Schema="dbo" store:Name="V_Account">
-            <DefiningQuery>SELECT 
-      [V_Account].[AccountId] AS [AccountId], 
-      [V_Account].[AccountName] AS [AccountName], 
-      [V_Account].[Name] AS [Name], 
-      [V_Account].[Password] AS [Password], 
-      [V_Account].[Email] AS [Email], 
-      [V_Account].[Phone] AS [Phone], 
-      [V_Account].[Status] AS [Status], 
-      [V_Account].[Type] AS [Type], 
-      [V_Account].[CreateDate] AS [CreateDate], 
-      [V_Account].[UpdateDate] AS [UpdateDate], 
-      [V_Account].[Id] AS [Id], 
-      [V_Account].[Integral] AS [Integral], 
-      [V_Account].[Expr1] AS [Expr1], 
-      [V_Account].[CollectionnNumber] AS [CollectionnNumber]
-      FROM [dbo].[V_Account] AS [V_Account]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="V_Post" EntityType="MHSJModel.Store.V_Post" store:Type="Views" store:Schema="dbo" store:Name="V_Post">
-            <DefiningQuery>SELECT 
-      [V_Post].[PostId] AS [PostId], 
-      [V_Post].[WordId] AS [WordId], 
-      [V_Post].[SimplifiedWord] AS [SimplifiedWord], 
-      [V_Post].[TraditionalWord] AS [TraditionalWord], 
-      [V_Post].[Pinyin] AS [Pinyin], 
-      [V_Post].[Wubi] AS [Wubi], 
-      [V_Post].[Changjei] AS [Changjei], 
-      [V_Post].[Zhengma] AS [Zhengma], 
-      [V_Post].[bsWord] AS [bsWord], 
-      [V_Post].[Tongjia] AS [Tongjia], 
-      [V_Post].[Yiti] AS [Yiti], 
-      [V_Post].[Tword] AS [Tword], 
-      [V_Post].[Bushou] AS [Bushou], 
-      [V_Post].[WordType] AS [WordType], 
-      [V_Post].[WordTypeName] AS [WordTypeName], 
-      [V_Post].[WordDirection] AS [WordDirection], 
-      [V_Post].[WriterId] AS [WriterId], 
-      [V_Post].[WriterName] AS [WriterName], 
-      [V_Post].[FromId] AS [FromId], 
-      [V_Post].[FromName] AS [FromName], 
-      [V_Post].[ImageUrl] AS [ImageUrl], 
-      [V_Post].[CreateDate] AS [CreateDate], 
-      [V_Post].[UpdateDate] AS [UpdateDate], 
-      [V_Post].[State] AS [State], 
-      [V_Post].[Browses] AS [Browses], 
-      [V_Post].[CollectionId] AS [CollectionId], 
-      [V_Post].[AccountId] AS [AccountId], 
-      [V_Post].[clstate] AS [clstate], 
-      [V_Post].[clUpdateDate] AS [clUpdateDate]
-      FROM [dbo].[V_Post] AS [V_Post]</DefiningQuery>
-          </EntitySet>
-        </EntityContainer>
+    <Schema Namespace="MHSJModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityType Name="T_AccountInfo">
           <Key>
             <PropertyRef Name="AccountId" />
           </Key>
-          <Property Name="AccountId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AccountName" Type="nvarchar" MaxLength="24" />
           <Property Name="Name" Type="nvarchar" MaxLength="24" />
           <Property Name="Password" Type="nvarchar" MaxLength="24" />
@@ -80,11 +20,22 @@
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="T_Collection">
+          <Key>
+            <PropertyRef Name="CollectionId" />
+          </Key>
+          <Property Name="CollectionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="PostId" Type="int" />
+          <Property Name="State" Type="int" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="UpdateDate" Type="datetime" />
+        </EntityType>
         <EntityType Name="T_From">
           <Key>
             <PropertyRef Name="FromId" />
           </Key>
-          <Property Name="FromId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FromId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FromName" Type="nvarchar" MaxLength="50" />
           <Property Name="FromAliases" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
@@ -92,11 +43,20 @@
           <Property Name="CreateDate" Type="datetime" />
           <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
+        <EntityType Name="T_Integral">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Integral" Type="int" />
+          <Property Name="AccountId" Type="int" />
+          <Property Name="CollectionnNumber" Type="int" />
+        </EntityType>
         <EntityType Name="T_Links">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" />
           <Property Name="Url" Type="nvarchar" MaxLength="100" />
           <Property Name="Type" Type="int" />
@@ -109,7 +69,7 @@
           <Key>
             <PropertyRef Name="PostId" />
           </Key>
-          <Property Name="PostId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="PostId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SimplifiedWord" Type="nvarchar" MaxLength="24" />
           <Property Name="TraditionalWord" Type="nvarchar" MaxLength="24" />
           <Property Name="Pinyin" Type="nvarchar" MaxLength="24" />
@@ -129,7 +89,7 @@
           <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
           <Property Name="WordId" Type="int" />
           <Property Name="Word" Type="nvarchar" MaxLength="50" />
-          <Property Name="TWord" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tword" Type="nvarchar" MaxLength="50" />
           <Property Name="State" Type="int" />
           <Property Name="Browses" Type="int" />
           <Property Name="CreateDate" Type="datetime" />
@@ -139,7 +99,7 @@
           <Key>
             <PropertyRef Name="SiteId" />
           </Key>
-          <Property Name="SiteId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SiteId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PostCount" Type="int" />
           <Property Name="CommentCount" Type="int" />
           <Property Name="VisitCount" Type="int" />
@@ -150,7 +110,7 @@
           <Key>
             <PropertyRef Name="WordId" />
           </Key>
-          <Property Name="WordId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WordId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SimplifiedWord" Type="nvarchar" MaxLength="24" />
           <Property Name="TraditionalWord" Type="nvarchar" MaxLength="24" />
           <Property Name="Pinyin" Type="nvarchar" MaxLength="24" />
@@ -168,8 +128,8 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="WriterName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WriterName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="WriterAliases" Type="nvarchar" MaxLength="50" />
           <Property Name="Dynasty" Type="nvarchar" MaxLength="50" />
           <Property Name="Description" Type="nvarchar" MaxLength="500" />
@@ -179,8 +139,7 @@
           <Property Name="UpdateDate" Type="datetime" />
         </EntityType>
         <!--生成过程中发现错误:
-      警告 6002: 表/视图“MHSJ.dbo.V_Account”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
+警告 6002: 表/视图“bds151529246_db.dbo.V_Account”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="V_Account">
           <Key>
             <PropertyRef Name="AccountId" />
@@ -202,8 +161,7 @@
           <Property Name="CollectionnNumber" Type="int" />
         </EntityType>
         <!--生成过程中发现错误:
-      警告 6002: 表/视图“MHSJ.dbo.V_Post”未定义主键。已推断出该键，并将定义创建为只读的表/视图。
-      -->
+警告 6002: 表/视图“bds151529246_db.dbo.V_Post”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="V_Post">
           <Key>
             <PropertyRef Name="PostId" />
@@ -238,6 +196,68 @@
           <Property Name="clstate" Type="int" />
           <Property Name="clUpdateDate" Type="datetime" />
         </EntityType>
+        <EntityContainer Name="MHSJModelStoreContainer">
+          <EntitySet Name="T_AccountInfo" EntityType="Self.T_AccountInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Collection" EntityType="Self.T_Collection" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_From" EntityType="Self.T_From" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Integral" EntityType="Self.T_Integral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Links" EntityType="Self.T_Links" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Post" EntityType="Self.T_Post" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Sites" EntityType="Self.T_Sites" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Word" EntityType="Self.T_Word" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_Writer" EntityType="Self.T_Writer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="V_Account" EntityType="Self.V_Account" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_Account].[AccountId] AS [AccountId], 
+[V_Account].[AccountName] AS [AccountName], 
+[V_Account].[Name] AS [Name], 
+[V_Account].[Password] AS [Password], 
+[V_Account].[Email] AS [Email], 
+[V_Account].[Phone] AS [Phone], 
+[V_Account].[Status] AS [Status], 
+[V_Account].[Type] AS [Type], 
+[V_Account].[CreateDate] AS [CreateDate], 
+[V_Account].[UpdateDate] AS [UpdateDate], 
+[V_Account].[Id] AS [Id], 
+[V_Account].[Integral] AS [Integral], 
+[V_Account].[Expr1] AS [Expr1], 
+[V_Account].[CollectionnNumber] AS [CollectionnNumber]
+FROM [dbo].[V_Account] AS [V_Account]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="V_Post" EntityType="Self.V_Post" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[V_Post].[PostId] AS [PostId], 
+[V_Post].[WordId] AS [WordId], 
+[V_Post].[SimplifiedWord] AS [SimplifiedWord], 
+[V_Post].[TraditionalWord] AS [TraditionalWord], 
+[V_Post].[Pinyin] AS [Pinyin], 
+[V_Post].[Wubi] AS [Wubi], 
+[V_Post].[Changjei] AS [Changjei], 
+[V_Post].[Zhengma] AS [Zhengma], 
+[V_Post].[bsWord] AS [bsWord], 
+[V_Post].[Tongjia] AS [Tongjia], 
+[V_Post].[Yiti] AS [Yiti], 
+[V_Post].[Tword] AS [Tword], 
+[V_Post].[Bushou] AS [Bushou], 
+[V_Post].[WordType] AS [WordType], 
+[V_Post].[WordTypeName] AS [WordTypeName], 
+[V_Post].[WordDirection] AS [WordDirection], 
+[V_Post].[WriterId] AS [WriterId], 
+[V_Post].[WriterName] AS [WriterName], 
+[V_Post].[FromId] AS [FromId], 
+[V_Post].[FromName] AS [FromName], 
+[V_Post].[ImageUrl] AS [ImageUrl], 
+[V_Post].[CreateDate] AS [CreateDate], 
+[V_Post].[UpdateDate] AS [UpdateDate], 
+[V_Post].[State] AS [State], 
+[V_Post].[Browses] AS [Browses], 
+[V_Post].[CollectionId] AS [CollectionId], 
+[V_Post].[AccountId] AS [AccountId], 
+[V_Post].[clstate] AS [clstate], 
+[V_Post].[clUpdateDate] AS [clUpdateDate]
+FROM [dbo].[V_Post] AS [V_Post]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -252,6 +272,8 @@
           <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.T_AccountInfo" />
           <EntitySet Name="T_Links" EntityType="MHSJModel.T_Links" />
           <EntitySet Name="V_Account" EntityType="MHSJModel.V_Account" />
+          <EntitySet Name="T_Collection" EntityType="MHSJModel.T_Collection" />
+          <EntitySet Name="T_Integral" EntityType="MHSJModel.T_Integral" />
           </EntityContainer>
         <EntityType Name="T_Writer">
           <Key>
@@ -332,7 +354,7 @@
           <Property Type="String" Name="ImageUrl" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="WordId" />
           <Property Type="String" Name="Word" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="TWord" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="State" />
           <Property Type="DateTime" Name="CreateDate" Precision="3" />
           <Property Type="DateTime" Name="UpdateDate" Precision="3" />
@@ -420,6 +442,26 @@
           <Property Type="Int32" Name="Expr1" />
           <Property Type="Int32" Name="CollectionnNumber" />
         </EntityType>
+        <EntityType Name="T_Collection">
+          <Key>
+            <PropertyRef Name="CollectionId" />
+          </Key>
+          <Property Name="CollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="PostId" Type="Int32" />
+          <Property Name="State" Type="Int32" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="T_Integral">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Integral" Type="Int32" />
+          <Property Name="AccountId" Type="Int32" />
+          <Property Name="CollectionnNumber" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -488,11 +530,11 @@
           <EntitySetMapping Name="T_Post">
             <EntityTypeMapping TypeName="MHSJModel.T_Post">
               <MappingFragment StoreEntitySet="T_Post">
+                <ScalarProperty Name="TWord" ColumnName="Tword" />
                 <ScalarProperty Name="Browses" ColumnName="Browses" />
                 <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
                 <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
                 <ScalarProperty Name="State" ColumnName="State" />
-                <ScalarProperty Name="TWord" ColumnName="TWord" />
                 <ScalarProperty Name="Word" ColumnName="Word" />
                 <ScalarProperty Name="WordId" ColumnName="WordId" />
                 <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
@@ -601,6 +643,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="T_Collection">
+            <EntityTypeMapping TypeName="MHSJModel.T_Collection">
+              <MappingFragment StoreEntitySet="T_Collection">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="State" ColumnName="State" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="CollectionId" ColumnName="CollectionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_Integral">
+            <EntityTypeMapping TypeName="MHSJModel.T_Integral">
+              <MappingFragment StoreEntitySet="T_Integral">
+                <ScalarProperty Name="CollectionnNumber" ColumnName="CollectionnNumber" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Integral" ColumnName="Integral" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -617,6 +681,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
@@ -631,6 +696,8 @@
         <EntityTypeShape EntityType="MHSJModel.T_AccountInfo" Width="1.5" PointX="9.170918085226285" PointY="6.453898075248067" />
         <EntityTypeShape EntityType="MHSJModel.T_Links" Width="1.5" PointX="11.506094611951195" PointY="0.17249606557772312" />
         <EntityTypeShape EntityType="MHSJModel.V_Account" Width="1.5" PointX="5.1404639059400488" PointY="30.254531442306252" />
+        <EntityTypeShape EntityType="MHSJModel.T_Collection" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="MHSJModel.T_Integral" Width="1.5" PointX="5.75" PointY="8.75" />
         </Diagram>
     </Diagrams>
   </Designer>

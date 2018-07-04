@@ -55,11 +55,17 @@
     <Compile Include="Common\NetHelper.cs" />
     <Compile Include="Common\RequestHelper.cs" />
     <Compile Include="Common\StringHelper.cs" />
+    <Compile Include="Common\WebHelper.cs" />
+    <Compile Include="Config\BSPConfig.cs" />
+    <Compile Include="Config\Info\ShopConfigInfo.cs" />
     <Compile Include="Controls\Pager.cs" />
     <Compile Include="Data\DataSql.cs" />
     <Compile Include="Data\Interface\IUser.cs" />
+    <Compile Include="Helper\TypeHelper.cs" />
+    <Compile Include="Helper\ValidateHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\Account\Biz_AccountManager.cs" />
+    <Compile Include="Service\Account\Biz_IntegralManager.cs" />
     <Compile Include="Service\Admin\Biz_PostManager.cs" />
     <Compile Include="Service\Admin\Biz_WordManager.cs" />
     <Compile Include="Service\Admin\PostManager.cs" />

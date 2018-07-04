@@ -10,6 +10,8 @@
     <EntitySet Name="T_AccountInfo" EntityType="MHSJModel.T_AccountInfo" />
     <EntitySet Name="T_Links" EntityType="MHSJModel.T_Links" />
     <EntitySet Name="V_Account" EntityType="MHSJModel.V_Account" />
+    <EntitySet Name="T_Collection" EntityType="MHSJModel.T_Collection" />
+    <EntitySet Name="T_Integral" EntityType="MHSJModel.T_Integral" />
   </EntityContainer>
   <EntityType Name="T_Writer">
     <Key>
@@ -90,7 +92,7 @@
     <Property Type="String" Name="ImageUrl" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="WordId" />
     <Property Type="String" Name="Word" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Type="String" Name="TWord" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="State" />
     <Property Type="DateTime" Name="CreateDate" Precision="3" />
     <Property Type="DateTime" Name="UpdateDate" Precision="3" />
@@ -177,5 +179,25 @@
     <Property Type="Int32" Name="Integral" />
     <Property Type="Int32" Name="Expr1" />
     <Property Type="Int32" Name="CollectionnNumber" />
+  </EntityType>
+  <EntityType Name="T_Collection">
+    <Key>
+      <PropertyRef Name="CollectionId" />
+    </Key>
+    <Property Name="CollectionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AccountId" Type="Int32" />
+    <Property Name="PostId" Type="Int32" />
+    <Property Name="State" Type="Int32" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_Integral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Integral" Type="Int32" />
+    <Property Name="AccountId" Type="Int32" />
+    <Property Name="CollectionnNumber" Type="Int32" />
   </EntityType>
 </Schema>

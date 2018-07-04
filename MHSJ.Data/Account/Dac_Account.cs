@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using MHSJ.Data.Common;
@@ -11,19 +12,41 @@ namespace MHSJ.Data.Account
     {
         public static Dac_Account dac_account =new Dac_Account();
 
-        public T_AccountInfo GetSingleaAccount(string name, string pw)
+        public bool CreateUserAndAccount(T_AccountInfo accountInfo)
         {
             try
             {
                 using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
                 {
-                    return entities.T_AccountInfo.SingleOrDefault(c => c.Name == name && c.Password==pw);
+                    Dac_EntityHelper<MHSJEntities, T_AccountInfo>.Insert_IntoEntities(entities, accountInfo, "T_AccountInfo");
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool ExistsAccountId(int id)
+        {
+            try
+            {
+                using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
+                {
+                    if ((from c in entities.T_AccountInfo
+                         where (c.AccountId == id) && (c.Status == 1)
+                         select c).Count<T_AccountInfo>() <= 0)
+                    {
+                        return false;
+                    }
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return null;
+                return true;
             }
+            return true;
         }
 
         public bool ExistsName(string name)
@@ -32,65 +55,109 @@ namespace MHSJ.Data.Account
             {
                 using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
                 {
-                    var info=entities.T_AccountInfo.SingleOrDefault(c => c.Name == name);
-                    if (info== null)
+                    if ((from c in entities.T_AccountInfo
+                         where c.Name == name
+                         select c).Count<T_AccountInfo>() <= 0)
                     {
-                        return true;
+                        return false;
                     }
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return false;
+                return true;
             }
-
             return true;
         }
 
-        public V_Account GetAccountInfo(int userId)
+        public V_Account GetAccountInfo(int id)
         {
+            V_Account account;
             try
             {
                 using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
                 {
-                    return entities.V_Account.SingleOrDefault(c => c.AccountId == userId);
+                    account = entities.V_Account.SingleOrDefault<V_Account>(c => c.AccountId == id);
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return null;
+                account = null;
             }
+            return account;
         }
 
-        public void CreateUserAndAccount(T_AccountInfo model)
+        public List<T_AccountInfo> GetListAccount(T_AccountInfo item, int pageSize, int pageIndex, out int recordCount)
         {
+            List<T_AccountInfo> list;
             try
             {
                 using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
                 {
-                    //todo 保存
-                     //entities.T_AccountInfo.u(c => c.Name == name);
+                    IQueryable<T_AccountInfo> source = entities.T_AccountInfo;
+                    recordCount = source.ToList<T_AccountInfo>().Count<T_AccountInfo>();
+                    list = (from c in source
+                            orderby c.CreateDate descending
+                            select c).Skip<T_AccountInfo>((pageSize * (pageIndex - 1))).Take<T_AccountInfo>(pageSize).ToList<T_AccountInfo>();
                 }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return ;
+                recordCount = 0;
+                list = null;
             }
+            return list;
         }
 
-        public void UpdateAccount(T_AccountInfo model)
+        public T_AccountInfo GetSingleaAccount(int id)
+        {
+            T_AccountInfo info;
+            try
+            {
+                using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
+                {
+                    info = entities.T_AccountInfo.SingleOrDefault<T_AccountInfo>(c => c.AccountId == id);
+                }
+            }
+            catch (Exception)
+            {
+                info = null;
+            }
+            return info;
+        }
+
+        public T_AccountInfo GetSingleaAccount(string name, string passWrod)
+        {
+            T_AccountInfo info;
+            try
+            {
+                using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
+                {
+                    info = entities.T_AccountInfo.SingleOrDefault<T_AccountInfo>(c => (c.Name == name) && (c.Password == passWrod));
+                }
+            }
+            catch (Exception)
+            {
+                info = null;
+            }
+            return info;
+        }
+
+        public bool UpdateAccount(T_AccountInfo accountInfo)
         {
             try
             {
                 using (MHSJEntities entities = Dac_Common.dac_Common.MHSJEntities())
                 {
-                    //todo 修改
-                    //entities.T_AccountInfo.u(c => c.Name == name);
+                    EntityKey key = new EntityKey("MHSJEntities.T_AccountInfo", "AccountId", accountInfo.AccountId);
+                    Dac_EntityHelper<MHSJEntities, T_AccountInfo>.UpdateEntity(entities, accountInfo, key, false);
+                    entities.SaveChanges();
                 }
+                return true;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                return;
+                return false;
             }
         }
 

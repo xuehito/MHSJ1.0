@@ -208,6 +208,38 @@ namespace MHSJ.Entity
             }
         }
         private ObjectSet<V_Account> _V_Account;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<T_Collection> T_Collection
+        {
+            get
+            {
+                if ((_T_Collection == null))
+                {
+                    _T_Collection = base.CreateObjectSet<T_Collection>("T_Collection");
+                }
+                return _T_Collection;
+            }
+        }
+        private ObjectSet<T_Collection> _T_Collection;
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        public ObjectSet<T_Integral> T_Integral
+        {
+            get
+            {
+                if ((_T_Integral == null))
+                {
+                    _T_Integral = base.CreateObjectSet<T_Integral>("T_Integral");
+                }
+                return _T_Integral;
+            }
+        }
+        private ObjectSet<T_Integral> _T_Integral;
 
         #endregion
 
@@ -283,6 +315,22 @@ namespace MHSJ.Entity
         public void AddToV_Account(V_Account v_Account)
         {
             base.AddObject("V_Account", v_Account);
+        }
+    
+        /// <summary>
+        /// 用于向 T_Collection EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToT_Collection(T_Collection t_Collection)
+        {
+            base.AddObject("T_Collection", t_Collection);
+        }
+    
+        /// <summary>
+        /// 用于向 T_Integral EntitySet 添加新对象的方法，已弃用。请考虑改用关联的 ObjectSet&lt;T&gt; 属性的 .Add 方法。
+        /// </summary>
+        public void AddToT_Integral(T_Integral t_Integral)
+        {
+            base.AddObject("T_Integral", t_Integral);
         }
 
         #endregion
@@ -569,6 +617,183 @@ namespace MHSJ.Entity
     /// <summary>
     /// 没有元数据文档可用。
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MHSJModel", Name="T_Collection")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class T_Collection : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 T_Collection 对象。
+        /// </summary>
+        /// <param name="collectionId">CollectionId 属性的初始值。</param>
+        public static T_Collection CreateT_Collection(global::System.Int32 collectionId)
+        {
+            T_Collection t_Collection = new T_Collection();
+            t_Collection.CollectionId = collectionId;
+            return t_Collection;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CollectionId
+        {
+            get
+            {
+                return _CollectionId;
+            }
+            set
+            {
+                if (_CollectionId != value)
+                {
+                    OnCollectionIdChanging(value);
+                    ReportPropertyChanging("CollectionId");
+                    _CollectionId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("CollectionId");
+                    OnCollectionIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _CollectionId;
+        partial void OnCollectionIdChanging(global::System.Int32 value);
+        partial void OnCollectionIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AccountId
+        {
+            get
+            {
+                return _AccountId;
+            }
+            set
+            {
+                OnAccountIdChanging(value);
+                ReportPropertyChanging("AccountId");
+                _AccountId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AccountId");
+                OnAccountIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AccountId;
+        partial void OnAccountIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAccountIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> PostId
+        {
+            get
+            {
+                return _PostId;
+            }
+            set
+            {
+                OnPostIdChanging(value);
+                ReportPropertyChanging("PostId");
+                _PostId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PostId");
+                OnPostIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _PostId;
+        partial void OnPostIdChanging(Nullable<global::System.Int32> value);
+        partial void OnPostIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> State
+        {
+            get
+            {
+                return _State;
+            }
+            set
+            {
+                OnStateChanging(value);
+                ReportPropertyChanging("State");
+                _State = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("State");
+                OnStateChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _State;
+        partial void OnStateChanging(Nullable<global::System.Int32> value);
+        partial void OnStateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> CreateDate
+        {
+            get
+            {
+                return _CreateDate;
+            }
+            set
+            {
+                OnCreateDateChanging(value);
+                ReportPropertyChanging("CreateDate");
+                _CreateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CreateDate");
+                OnCreateDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _CreateDate;
+        partial void OnCreateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnCreateDateChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> UpdateDate
+        {
+            get
+            {
+                return _UpdateDate;
+            }
+            set
+            {
+                OnUpdateDateChanging(value);
+                ReportPropertyChanging("UpdateDate");
+                _UpdateDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("UpdateDate");
+                OnUpdateDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _UpdateDate;
+        partial void OnUpdateDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnUpdateDateChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="MHSJModel", Name="T_From")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -763,6 +988,135 @@ namespace MHSJ.Entity
         private Nullable<global::System.DateTime> _UpdateDate;
         partial void OnUpdateDateChanging(Nullable<global::System.DateTime> value);
         partial void OnUpdateDateChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// 没有元数据文档可用。
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="MHSJModel", Name="T_Integral")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class T_Integral : EntityObject
+    {
+        #region 工厂方法
+    
+        /// <summary>
+        /// 创建新的 T_Integral 对象。
+        /// </summary>
+        /// <param name="id">Id 属性的初始值。</param>
+        public static T_Integral CreateT_Integral(global::System.Int32 id)
+        {
+            T_Integral t_Integral = new T_Integral();
+            t_Integral.Id = id;
+            return t_Integral;
+        }
+
+        #endregion
+
+        #region 基元属性
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> Integral
+        {
+            get
+            {
+                return _Integral;
+            }
+            set
+            {
+                OnIntegralChanging(value);
+                ReportPropertyChanging("Integral");
+                _Integral = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Integral");
+                OnIntegralChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _Integral;
+        partial void OnIntegralChanging(Nullable<global::System.Int32> value);
+        partial void OnIntegralChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> AccountId
+        {
+            get
+            {
+                return _AccountId;
+            }
+            set
+            {
+                OnAccountIdChanging(value);
+                ReportPropertyChanging("AccountId");
+                _AccountId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("AccountId");
+                OnAccountIdChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _AccountId;
+        partial void OnAccountIdChanging(Nullable<global::System.Int32> value);
+        partial void OnAccountIdChanged();
+    
+        /// <summary>
+        /// 没有元数据文档可用。
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> CollectionnNumber
+        {
+            get
+            {
+                return _CollectionnNumber;
+            }
+            set
+            {
+                OnCollectionnNumberChanging(value);
+                ReportPropertyChanging("CollectionnNumber");
+                _CollectionnNumber = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CollectionnNumber");
+                OnCollectionnNumberChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _CollectionnNumber;
+        partial void OnCollectionnNumberChanging(Nullable<global::System.Int32> value);
+        partial void OnCollectionnNumberChanged();
 
         #endregion
 

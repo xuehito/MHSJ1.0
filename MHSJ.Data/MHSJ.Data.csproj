@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -43,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Dac_Account.cs" />
+    <Compile Include="Account\Dac_Integral.cs" />
     <Compile Include="Admin\Dac_Post.cs" />
     <Compile Include="Admin\Dac_Word.cs" />
     <Compile Include="Admin\Post.cs" />
@@ -50,6 +54,9 @@
     <Compile Include="Common\Dac_Common.cs" />
     <Compile Include="Common\Dac_EntityHelper.cs" />
     <Compile Include="Common\DbHelperSQL.cs" />
+    <Compile Include="Common\LogHelper.cs" />
+    <Compile Include="Link\Dac_Link.cs" />
+    <Compile Include="MyCenter\Dac_Collection.cs" />
     <Compile Include="MyCenter\Dac_CollectionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting.cs" />
@@ -62,6 +69,9 @@
       <Project>{D764E2E3-62BB-4D8D-99DC-CB01265935AE}</Project>
       <Name>MHSJ.Entity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

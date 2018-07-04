@@ -19,3 +19,14 @@ F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Data\bin\Debug\MHSJ.Entity.pdb
 F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.csprojResolveAssemblyReference.cache
 F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.dll
 F:\我的资料\Program\MHSJ1.0\MHSJ\MHSJ.Data\obj\Debug\MHSJ.Data.pdb
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\obj\Debug\MHSJ.Data.csprojResolveAssemblyReference.cache
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\obj\Debug\MHSJ.Data.csproj.CoreCompileInputs.cache
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\MHSJ.Data.dll
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\MHSJ.Data.pdb
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\log4net.dll
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\MHSJ.Entity.dll
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\MHSJ.Entity.pdb
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\MHSJ.Entity.dll.config
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\bin\Debug\log4net.xml
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\obj\Debug\MHSJ.Data.dll
+E:\xhtgit\Source\MHSJ1.0\MHSJ.Data\obj\Debug\MHSJ.Data.pdb
